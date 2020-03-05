@@ -11,7 +11,7 @@ class DataUtil {
     
     static func calculate(dataList: [KLineModel]) {
 //        if (dataList == nil) { return }
-        dataList.reversed()
+//      let dataList = dataList.reversed()
       calcMA(dataList);
       calcBOLL(dataList);
       calcVolumeMA(dataList);
