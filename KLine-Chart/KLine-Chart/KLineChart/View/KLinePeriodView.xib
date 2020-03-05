@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="KLinePeriodView" customModule="KLine_Chart" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63M-c0-fdX">
+                    <rect key="frame" x="0.0" y="0.0" width="59" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="l4s-qv-XLi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="分时">
+                        <color key="titleColor" red="0.37647058823529411" green="0.45098039215686275" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921568627451" green="0.52549019607843139" blue="0.80392156862745101" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="TOe-dE-2ht"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SG2-Wt-a4U">
+                    <rect key="frame" x="59" y="0.0" width="59" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="5hS-3m-veB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="5分">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ktd-GU-uPB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvT-Pz-H0p">
+                    <rect key="frame" x="118" y="0.0" width="59" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="cAk-ss-tVe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="30分">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="KTI-hs-9c0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgc-x6-5wr">
+                    <rect key="frame" x="177" y="0.0" width="59" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="jrC-MO-V0z"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="1小时">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="rmg-Aa-mio"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lkg-VK-fpe">
+                    <rect key="frame" x="236" y="0.0" width="59" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="0SJ-0p-k0d"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="4小时">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bdn-Pd-Jjl"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9s-La-6iN">
+                    <rect key="frame" x="354" y="0.0" width="59" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="VXy-vT-nIv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="周线">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="6x5-5y-aY8"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7v0-oJ-ZJy">
+                    <rect key="frame" x="20.666666666666668" y="28" width="18.000000000000004" height="2"/>
+                    <color key="backgroundColor" red="0.29803921568627451" green="0.52549019607843139" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="Ney-3V-MnP"/>
+                        <constraint firstAttribute="width" constant="18" id="b28-Az-daC"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qX-DH-76a">
+                    <rect key="frame" x="295" y="0.0" width="59" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="LNa-vw-oNx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="日线">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ogv-38-0dG"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3qX-DH-76a" firstAttribute="leading" secondItem="Lkg-VK-fpe" secondAttribute="trailing" id="0pj-Xg-6VB"/>
+                <constraint firstItem="hvT-Pz-H0p" firstAttribute="width" secondItem="63M-c0-fdX" secondAttribute="width" id="1GF-ef-HGf"/>
+                <constraint firstItem="A9s-La-6iN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="1Ly-hY-paV"/>
+                <constraint firstItem="3qX-DH-76a" firstAttribute="width" secondItem="63M-c0-fdX" secondAttribute="width" id="1ij-gm-qoK"/>
+                <constraint firstItem="fgc-x6-5wr" firstAttribute="leading" secondItem="hvT-Pz-H0p" secondAttribute="trailing" id="Bn2-dH-kIU"/>
+                <constraint firstItem="7v0-oJ-ZJy" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Cbb-gB-Pw0"/>
+                <constraint firstItem="hvT-Pz-H0p" firstAttribute="leading" secondItem="SG2-Wt-a4U" secondAttribute="trailing" id="DKS-uv-JUu"/>
+                <constraint firstItem="hvT-Pz-H0p" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="KDz-7a-jfN"/>
+                <constraint firstItem="SG2-Wt-a4U" firstAttribute="width" secondItem="63M-c0-fdX" secondAttribute="width" id="Lim-1V-6bm"/>
+                <constraint firstItem="63M-c0-fdX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ofc-qv-xOe"/>
+                <constraint firstItem="3qX-DH-76a" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="PuR-JO-Xhn"/>
+                <constraint firstItem="SG2-Wt-a4U" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Q1B-lN-EcG"/>
+                <constraint firstItem="7v0-oJ-ZJy" firstAttribute="centerX" secondItem="63M-c0-fdX" secondAttribute="centerX" id="Skf-TV-EMQ"/>
+                <constraint firstItem="fgc-x6-5wr" firstAttribute="width" secondItem="63M-c0-fdX" secondAttribute="width" id="XNI-ve-MFh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="A9s-La-6iN" secondAttribute="trailing" id="apA-Dv-qtA"/>
+                <constraint firstItem="A9s-La-6iN" firstAttribute="leading" secondItem="3qX-DH-76a" secondAttribute="trailing" id="hEP-40-pJe"/>
+                <constraint firstItem="Lkg-VK-fpe" firstAttribute="leading" secondItem="fgc-x6-5wr" secondAttribute="trailing" id="lTp-Og-s4e"/>
+                <constraint firstItem="fgc-x6-5wr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mcW-xY-FQT"/>
+                <constraint firstItem="SG2-Wt-a4U" firstAttribute="leading" secondItem="63M-c0-fdX" secondAttribute="trailing" id="oR6-oy-d2R"/>
+                <constraint firstItem="Lkg-VK-fpe" firstAttribute="width" secondItem="63M-c0-fdX" secondAttribute="width" id="pu1-MA-OdS"/>
+                <constraint firstItem="A9s-La-6iN" firstAttribute="width" secondItem="63M-c0-fdX" secondAttribute="width" id="qFZ-np-CIf"/>
+                <constraint firstItem="Lkg-VK-fpe" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="t1y-sz-5nY"/>
+                <constraint firstItem="63M-c0-fdX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="xmb-Y9-Km1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="centerXConstraint" destination="Skf-TV-EMQ" id="APE-l4-Stp"/>
+                <outlet property="period1dayButton" destination="3qX-DH-76a" id="Ul4-TY-c6c"/>
+                <outlet property="period1hourButton" destination="fgc-x6-5wr" id="N1Z-Ie-Xt4"/>
+                <outlet property="period1weakButton" destination="A9s-La-6iN" id="5ot-Dc-ZUX"/>
+                <outlet property="period30fenButton" destination="hvT-Pz-H0p" id="tdg-9S-dF8"/>
+                <outlet property="period4hourButton" destination="Lkg-VK-fpe" id="F5D-Ye-ZZT"/>
+                <outlet property="period5fenButton" destination="SG2-Wt-a4U" id="l43-gI-PqW"/>
+                <outlet property="periodfenButton" destination="63M-c0-fdX" id="c0x-TT-Rea"/>
+            </connections>
+            <point key="canvasLocation" x="-48.550724637681164" y="-156.92934782608697"/>
+        </view>
+    </objects>
+</document>

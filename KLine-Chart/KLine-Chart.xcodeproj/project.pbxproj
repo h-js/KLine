@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E2B4016240FD60700A9BF59 /* KLineInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2B4014240FD60700A9BF59 /* KLineInfoView.xib */; };
+		6E2B4017240FD60700A9BF59 /* KLineInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B4015240FD60700A9BF59 /* KLineInfoView.swift */; };
+		6E2B4019240FE38400A9BF59 /* KLineVerticalIndicatorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B4018240FE38400A9BF59 /* KLineVerticalIndicatorsView.swift */; };
+		6E2B401B240FE39500A9BF59 /* KLineVerticalIndicatorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2B401A240FE39500A9BF59 /* KLineVerticalIndicatorsView.xib */; };
+		6E2B401E240FEF6400A9BF59 /* HTTPTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2B401D240FEF6400A9BF59 /* HTTPTool.swift */; };
+		6EB1BB3C240E71AF00B61F08 /* KLinePeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB1BB3B240E71AF00B61F08 /* KLinePeriodView.swift */; };
+		6EB1BB3E240E71C500B61F08 /* KLinePeriodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB1BB3D240E71C500B61F08 /* KLinePeriodView.xib */; };
+		6EB1BB40240E79D700B61F08 /* KLineIndicatorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB1BB3F240E79D700B61F08 /* KLineIndicatorsView.swift */; };
+		6EB1BB42240E79EE00B61F08 /* KLineIndicatorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB1BB41240E79EE00B61F08 /* KLineIndicatorsView.xib */; };
+		6EB1BB44240E7F7C00B61F08 /* KLineStateManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB1BB43240E7F7C00B61F08 /* KLineStateManger.swift */; };
+		6EBA1272240B53C500EB1B4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA1271240B53C500EB1B4E /* AppDelegate.swift */; };
+		6EBA1276240B53C500EB1B4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA1275240B53C500EB1B4E /* ViewController.swift */; };
+		6EBA1279240B53C500EB1B4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EBA1277240B53C500EB1B4E /* Main.storyboard */; };
+		6EBA127B240B53C600EB1B4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EBA127A240B53C600EB1B4E /* Assets.xcassets */; };
+		6EBA127E240B53C600EB1B4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EBA127C240B53C600EB1B4E /* LaunchScreen.storyboard */; };
+		6EBA1286240B53F100EB1B4E /* KLinePainterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA1285240B53F100EB1B4E /* KLinePainterView.swift */; };
+		6EBA128A240B575700EB1B4E /* ChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA1289240B575700EB1B4E /* ChartStyle.swift */; };
+		6EBA128D240B5A5500EB1B4E /* KLineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBA128C240B5A5500EB1B4E /* KLineState.swift */; };
+		6EF6F273240B5E9D0045F912 /* BaseChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F272240B5E9D0045F912 /* BaseChartRenderer.swift */; };
+		6EF6F275240B608C0045F912 /* MainChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F274240B608C0045F912 /* MainChartRenderer.swift */; };
+		6EF6F278240B61D00045F912 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F277240B61D00045F912 /* UIColor+RGB.swift */; };
+		6EF6F27A240B7EBC0045F912 /* VolChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F279240B7EBC0045F912 /* VolChartRenderer.swift */; };
+		6EF6F27C240B7F150045F912 /* SecondaryChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F27B240B7F150045F912 /* SecondaryChartRenderer.swift */; };
+		6EF6F27E240B83BC0045F912 /* KLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F27D240B83BC0045F912 /* KLineModel.swift */; };
+		6EF6F280240B87640045F912 /* KLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F27F240B87640045F912 /* KLineChartView.swift */; };
+		6EF6F282240B90D80045F912 /* Calculate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F281240B90D80045F912 /* Calculate.swift */; };
+		6EF6F287240B9EE80045F912 /* kline.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF6F284240B9EE80045F912 /* kline.json */; };
+		6EF6F288240B9EE80045F912 /* depth.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF6F285240B9EE80045F912 /* depth.json */; };
+		6EF6F289240B9EE80045F912 /* kmon.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF6F286240B9EE80045F912 /* kmon.json */; };
+		6EF6F28B240BB4D20045F912 /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F28A240BB4D20045F912 /* DataUtil.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6E2B4014240FD60700A9BF59 /* KLineInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLineInfoView.xib; sourceTree = "<group>"; };
+		6E2B4015240FD60700A9BF59 /* KLineInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLineInfoView.swift; sourceTree = "<group>"; };
+		6E2B4018240FE38400A9BF59 /* KLineVerticalIndicatorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLineVerticalIndicatorsView.swift; sourceTree = "<group>"; };
+		6E2B401A240FE39500A9BF59 /* KLineVerticalIndicatorsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KLineVerticalIndicatorsView.xib; sourceTree = "<group>"; };
+		6E2B401D240FEF6400A9BF59 /* HTTPTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTool.swift; sourceTree = "<group>"; };
+		6EB1BB3B240E71AF00B61F08 /* KLinePeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLinePeriodView.swift; sourceTree = "<group>"; };
+		6EB1BB3D240E71C500B61F08 /* KLinePeriodView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KLinePeriodView.xib; sourceTree = "<group>"; };
+		6EB1BB3F240E79D700B61F08 /* KLineIndicatorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLineIndicatorsView.swift; sourceTree = "<group>"; };
+		6EB1BB41240E79EE00B61F08 /* KLineIndicatorsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KLineIndicatorsView.xib; sourceTree = "<group>"; };
+		6EB1BB43240E7F7C00B61F08 /* KLineStateManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLineStateManger.swift; sourceTree = "<group>"; };
+		6EBA126E240B53C500EB1B4E /* KLine-Chart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLine-Chart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EBA1271240B53C500EB1B4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6EBA1275240B53C500EB1B4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6EBA1278240B53C500EB1B4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6EBA127A240B53C600EB1B4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6EBA127D240B53C600EB1B4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6EBA127F240B53C600EB1B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EBA1285240B53F100EB1B4E /* KLinePainterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLinePainterView.swift; sourceTree = "<group>"; };
+		6EBA1289240B575700EB1B4E /* ChartStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStyle.swift; sourceTree = "<group>"; };
+		6EBA128C240B5A5500EB1B4E /* KLineState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLineState.swift; sourceTree = "<group>"; };
+		6EF6F272240B5E9D0045F912 /* BaseChartRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChartRenderer.swift; sourceTree = "<group>"; };
+		6EF6F274240B608C0045F912 /* MainChartRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartRenderer.swift; sourceTree = "<group>"; };
+		6EF6F277240B61D00045F912 /* UIColor+RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
+		6EF6F279240B7EBC0045F912 /* VolChartRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolChartRenderer.swift; sourceTree = "<group>"; };
+		6EF6F27B240B7F150045F912 /* SecondaryChartRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryChartRenderer.swift; sourceTree = "<group>"; };
+		6EF6F27D240B83BC0045F912 /* KLineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLineModel.swift; sourceTree = "<group>"; };
+		6EF6F27F240B87640045F912 /* KLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLineChartView.swift; sourceTree = "<group>"; };
+		6EF6F281240B90D80045F912 /* Calculate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculate.swift; sourceTree = "<group>"; };
+		6EF6F284240B9EE80045F912 /* kline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kline.json; sourceTree = "<group>"; };
+		6EF6F285240B9EE80045F912 /* depth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = depth.json; sourceTree = "<group>"; };
+		6EF6F286240B9EE80045F912 /* kmon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kmon.json; sourceTree = "<group>"; };
+		6EF6F28A240BB4D20045F912 /* DataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6EBA126B240B53C500EB1B4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E2B401C240FEF3100A9BF59 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				6E2B401D240FEF6400A9BF59 /* HTTPTool.swift */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		6EB1BB3A240E6FE000B61F08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6E2B4015240FD60700A9BF59 /* KLineInfoView.swift */,
+				6E2B4014240FD60700A9BF59 /* KLineInfoView.xib */,
+				6EB1BB3B240E71AF00B61F08 /* KLinePeriodView.swift */,
+				6EB1BB3D240E71C500B61F08 /* KLinePeriodView.xib */,
+				6EB1BB3F240E79D700B61F08 /* KLineIndicatorsView.swift */,
+				6EB1BB41240E79EE00B61F08 /* KLineIndicatorsView.xib */,
+				6E2B4018240FE38400A9BF59 /* KLineVerticalIndicatorsView.swift */,
+				6E2B401A240FE39500A9BF59 /* KLineVerticalIndicatorsView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6EBA1265240B53C500EB1B4E = {
+			isa = PBXGroup;
+			children = (
+				6EBA1270240B53C500EB1B4E /* KLine-Chart */,
+				6EBA126F240B53C500EB1B4E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6EBA126F240B53C500EB1B4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EBA126E240B53C500EB1B4E /* KLine-Chart.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6EBA1270240B53C500EB1B4E /* KLine-Chart */ = {
+			isa = PBXGroup;
+			children = (
+				6E2B401C240FEF3100A9BF59 /* NetWork */,
+				6EF6F283240B9EC90045F912 /* Resource */,
+				6EBA1287240B56FA00EB1B4E /* KLineChart */,
+				6EBA1271240B53C500EB1B4E /* AppDelegate.swift */,
+				6EBA1275240B53C500EB1B4E /* ViewController.swift */,
+				6EBA1277240B53C500EB1B4E /* Main.storyboard */,
+				6EBA127A240B53C600EB1B4E /* Assets.xcassets */,
+				6EBA127C240B53C600EB1B4E /* LaunchScreen.storyboard */,
+				6EBA127F240B53C600EB1B4E /* Info.plist */,
+			);
+			path = "KLine-Chart";
+			sourceTree = "<group>";
+		};
+		6EBA1287240B56FA00EB1B4E /* KLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				6EB1BB3A240E6FE000B61F08 /* View */,
+				6EF6F276240B61AA0045F912 /* Util */,
+				6EF6F271240B5E5E0045F912 /* Renderer */,
+				6EBA128B240B5A1300EB1B4E /* Model */,
+				6EBA1288240B570F00EB1B4E /* Style */,
+				6EF6F27F240B87640045F912 /* KLineChartView.swift */,
+				6EBA1285240B53F100EB1B4E /* KLinePainterView.swift */,
+			);
+			path = KLineChart;
+			sourceTree = "<group>";
+		};
+		6EBA1288240B570F00EB1B4E /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				6EBA1289240B575700EB1B4E /* ChartStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		6EBA128B240B5A1300EB1B4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6EBA128C240B5A5500EB1B4E /* KLineState.swift */,
+				6EF6F27D240B83BC0045F912 /* KLineModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6EF6F271240B5E5E0045F912 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				6EF6F272240B5E9D0045F912 /* BaseChartRenderer.swift */,
+				6EF6F274240B608C0045F912 /* MainChartRenderer.swift */,
+				6EF6F279240B7EBC0045F912 /* VolChartRenderer.swift */,
+				6EF6F27B240B7F150045F912 /* SecondaryChartRenderer.swift */,
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
+		6EF6F276240B61AA0045F912 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6EF6F277240B61D00045F912 /* UIColor+RGB.swift */,
+				6EF6F281240B90D80045F912 /* Calculate.swift */,
+				6EF6F28A240BB4D20045F912 /* DataUtil.swift */,
+				6EB1BB43240E7F7C00B61F08 /* KLineStateManger.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		6EF6F283240B9EC90045F912 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				6EF6F285240B9EE80045F912 /* depth.json */,
+				6EF6F284240B9EE80045F912 /* kline.json */,
+				6EF6F286240B9EE80045F912 /* kmon.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6EBA126D240B53C500EB1B4E /* KLine-Chart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EBA1282240B53C600EB1B4E /* Build configuration list for PBXNativeTarget "KLine-Chart" */;
+			buildPhases = (
+				6EBA126A240B53C500EB1B4E /* Sources */,
+				6EBA126B240B53C500EB1B4E /* Frameworks */,
+				6EBA126C240B53C500EB1B4E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "KLine-Chart";
+			productName = "KLine-Chart";
+			productReference = 6EBA126E240B53C500EB1B4E /* KLine-Chart.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6EBA1266240B53C500EB1B4E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = hjs;
+				TargetAttributes = {
+					6EBA126D240B53C500EB1B4E = {
+						CreatedOnToolsVersion = 11.3;
+					};
+				};
+			};
+			buildConfigurationList = 6EBA1269240B53C500EB1B4E /* Build configuration list for PBXProject "KLine-Chart" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6EBA1265240B53C500EB1B4E;
+			productRefGroup = 6EBA126F240B53C500EB1B4E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6EBA126D240B53C500EB1B4E /* KLine-Chart */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6EBA126C240B53C500EB1B4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E2B401B240FE39500A9BF59 /* KLineVerticalIndicatorsView.xib in Resources */,
+				6E2B4016240FD60700A9BF59 /* KLineInfoView.xib in Resources */,
+				6EBA127E240B53C600EB1B4E /* LaunchScreen.storyboard in Resources */,
+				6EF6F287240B9EE80045F912 /* kline.json in Resources */,
+				6EBA127B240B53C600EB1B4E /* Assets.xcassets in Resources */,
+				6EF6F288240B9EE80045F912 /* depth.json in Resources */,
+				6EF6F289240B9EE80045F912 /* kmon.json in Resources */,
+				6EB1BB3E240E71C500B61F08 /* KLinePeriodView.xib in Resources */,
+				6EBA1279240B53C500EB1B4E /* Main.storyboard in Resources */,
+				6EB1BB42240E79EE00B61F08 /* KLineIndicatorsView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6EBA126A240B53C500EB1B4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF6F27C240B7F150045F912 /* SecondaryChartRenderer.swift in Sources */,
+				6EB1BB3C240E71AF00B61F08 /* KLinePeriodView.swift in Sources */,
+				6EF6F275240B608C0045F912 /* MainChartRenderer.swift in Sources */,
+				6E2B401E240FEF6400A9BF59 /* HTTPTool.swift in Sources */,
+				6EF6F27A240B7EBC0045F912 /* VolChartRenderer.swift in Sources */,
+				6EBA1276240B53C500EB1B4E /* ViewController.swift in Sources */,
+				6EF6F28B240BB4D20045F912 /* DataUtil.swift in Sources */,
+				6EB1BB44240E7F7C00B61F08 /* KLineStateManger.swift in Sources */,
+				6EBA1272240B53C500EB1B4E /* AppDelegate.swift in Sources */,
+				6EF6F280240B87640045F912 /* KLineChartView.swift in Sources */,
+				6EF6F278240B61D00045F912 /* UIColor+RGB.swift in Sources */,
+				6E2B4017240FD60700A9BF59 /* KLineInfoView.swift in Sources */,
+				6EF6F282240B90D80045F912 /* Calculate.swift in Sources */,
+				6EBA128A240B575700EB1B4E /* ChartStyle.swift in Sources */,
+				6EF6F273240B5E9D0045F912 /* BaseChartRenderer.swift in Sources */,
+				6EBA1286240B53F100EB1B4E /* KLinePainterView.swift in Sources */,
+				6E2B4019240FE38400A9BF59 /* KLineVerticalIndicatorsView.swift in Sources */,
+				6EBA128D240B5A5500EB1B4E /* KLineState.swift in Sources */,
+				6EF6F27E240B83BC0045F912 /* KLineModel.swift in Sources */,
+				6EB1BB40240E79D700B61F08 /* KLineIndicatorsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6EBA1277240B53C500EB1B4E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EBA1278240B53C500EB1B4E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6EBA127C240B53C600EB1B4E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EBA127D240B53C600EB1B4E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6EBA1280240B53C600EB1B4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6EBA1281240B53C600EB1B4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6EBA1283240B53C600EB1B4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4EWH2ZGL8V;
+				INFOPLIST_FILE = "KLine-Chart/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hjs.KLine-Chart";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6EBA1284240B53C600EB1B4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4EWH2ZGL8V;
+				INFOPLIST_FILE = "KLine-Chart/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hjs.KLine-Chart";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6EBA1269240B53C500EB1B4E /* Build configuration list for PBXProject "KLine-Chart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EBA1280240B53C600EB1B4E /* Debug */,
+				6EBA1281240B53C600EB1B4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EBA1282240B53C600EB1B4E /* Build configuration list for PBXNativeTarget "KLine-Chart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EBA1283240B53C600EB1B4E /* Debug */,
+				6EBA1284240B53C600EB1B4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6EBA1266240B53C500EB1B4E /* Project object */;
+}
