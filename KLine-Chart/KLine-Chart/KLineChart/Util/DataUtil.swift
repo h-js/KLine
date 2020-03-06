@@ -10,15 +10,14 @@ import UIKit
 class DataUtil {
     
     static func calculate(dataList: [KLineModel]) {
-//        if (dataList == nil) { return }
-//      let dataList = dataList.reversed()
-      calcMA(dataList);
-      calcBOLL(dataList);
-      calcVolumeMA(dataList);
-      calcKDJ(dataList);
-      calcMACD(dataList);
-      calcRSI(dataList);
-      calcWR(dataList);
+      let _dataList = dataList.reversed() as [KLineModel]
+      calcMA(_dataList);
+      calcBOLL(_dataList);
+      calcVolumeMA(_dataList);
+      calcKDJ(_dataList);
+      calcMACD(_dataList);
+      calcRSI(_dataList);
+      calcWR(_dataList);
     }
     
     

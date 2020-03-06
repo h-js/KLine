@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         
 //        KLineStateManger.manager.datas = []
         HTTPTool.tool.getData(period: KLineStateManger.manager.period) { (datas) in
-            DataUtil.calculate(dataList: datas.reversed())
+            DataUtil.calculate(dataList: datas)
             KLineStateManger.manager.datas = datas
             
         }
