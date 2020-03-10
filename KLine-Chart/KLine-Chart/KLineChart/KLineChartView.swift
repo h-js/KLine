@@ -182,7 +182,6 @@ class KLineChartView: UIView {
                isScale = true
            case .changed:
             isScale = true
-            gesture.location(in: <#T##UIView?#>)
             print(gesture.scale)
             scaleX = clamp(value: self.lastscaleX * gesture.scale, min: 0.5, max: 2)
            case .ended:
