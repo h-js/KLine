@@ -10,6 +10,31 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSUInteger {
+    KLineDirectionVertical,
+    KLineDirectionHorizontal,
+} KLineDirection;
+
+typedef enum : NSUInteger {
+    MainStateMA,
+    MainStateBOLL,
+    MainStateNONE
+} MainState;
+
+typedef enum : NSUInteger {
+    VolStateVOL,
+    VolStateNONE,
+} VolState;
+
+typedef enum : NSUInteger {
+    SecondaryStateMacd,
+    SecondaryStateKDJ,
+    SecondaryStateRSI,
+    SecondaryStateWR,
+    SecondaryStateNONE,
+} SecondaryState;
+
+
 @interface KLineState : NSObject
 
 @end

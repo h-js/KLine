@@ -6,14 +6,15 @@
 //  Copyright © 2020 hjs. All rights reserved.
 //
 
-#import <AppKit/AppKit.h>
-
-
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (RGB)
+
++(UIColor *)rgb_r:(CGFloat)r g:(CGFloat)g b:(CGFloat)b alpha:(CGFloat)alpha;
+
++(UIColor *)rgbFromHex:(NSUInteger)argbValue;
 
 @end
 

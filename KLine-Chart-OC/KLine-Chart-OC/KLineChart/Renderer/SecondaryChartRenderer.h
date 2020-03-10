@@ -7,11 +7,17 @@
 //
 
 #import "BaseChartRenderer.h"
+#import "KLineState.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SecondaryChartRenderer : BaseChartRenderer
-
+- (instancetype)initWithMaxValue:(CGFloat)maxValue
+                        minValue:(CGFloat)minValue
+                       chartRect:(CGRect)chartRect
+                     candleWidth:(CGFloat)candleWidth
+                      topPadding:(CGFloat)topPadding
+                           state:(SecondaryState)state;
 @end
 
 NS_ASSUME_NONNULL_END

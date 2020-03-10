@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KLineModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DataUtil : NSObject
-
++(void)calculate:(NSArray<KLineModel *> *)dataList;
 @end
 
 NS_ASSUME_NONNULL_END
