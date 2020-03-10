@@ -7,6 +7,7 @@
 //
 
 #import "BaseChartRenderer.h"
+#import "ChartStyle.h"
 
 
 @implementation BaseChartRenderer
@@ -46,7 +47,16 @@
     
 }
 -(void)drawBg:(CGContextRef)context {
-    
+    CGContextClipToRect(context, _chartRect);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGFloat compoents[] = {(0x0E/255), (0x19/255), (0x25/255), 1,
+        (0x0E/255), (0x20/255), (0x34/255), 1};
+    CGFloat locations[] = {0,1};
+    CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, compoents, locations, 2);
+    CGPoint start = CGPointMake(_chartRect.size.width / 2, CGRectGetMinY(_chartRect));
+    CGPoint end = CGPointMake(_chartRect.size.width / 2, CGRectGetMaxY(_chartRect));
+    CGContextDrawLinearGradient(context, gradient, start, end, kCGGradientDrawsBeforeStartLocation);
+    CGContextResetClip(context);
 }
 
 -(void)drawChart:(CGContextRef)context
@@ -60,7 +70,19 @@
        curValue:(CGFloat)curValue
            curX:(CGFloat)curX
           color:(UIColor *)color {
-    
+    CGContextSetStrokeColorWithColor(context, color.CGColor);
+    CGContextSetLineWidth(context, 1);
+    CGFloat x1 = curX;
+    CGFloat y1 = [self getY:curValue];
+    CGFloat x2 = curX + _candleWidth + ChartStyle_canldeMargin;
+    CGFloat y2 = [self getY:lastValue];
+    CGContextMoveToPoint(context, x1, y1);
+    CGContextAddLineToPoint(context, x2, y2);
+    CGContextDrawPath(context, kCGPathFillStroke);
+}
+
+-(CGFloat)getY:(CGFloat)value {
+    return _scaleY * (_maxValue - value) + CGRectGetMinY(_chartRect) + _topPadding;
 }
 
 @end

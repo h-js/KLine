@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) CGFloat candleWidth;
 @property(nonatomic,assign) CGFloat scaleY;
 @property(nonatomic,assign) CGFloat topPadding;
+
 - (instancetype)initWithMaxValue:(CGFloat)maxValue
                         minValue:(CGFloat)minValue
                        chartRect:(CGRect)chartRect
@@ -48,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
        curValue:(CGFloat)curValue
            curX:(CGFloat)curX
           color:(UIColor *)color;
+
+-(CGFloat)getY:(CGFloat)value;
 
 @end
 
