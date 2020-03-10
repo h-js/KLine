@@ -95,6 +95,15 @@ class KLinePainterView: UIView {
     
     var direction: KLineDirection = .vertical
     
+    var fuzzylayer: CALayer = {
+        let layer = CALayer()
+        layer.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        layer.backgroundColor = UIColor.rgb(r: 0, 0, 0, alpha: 0.3).cgColor
+        layer.cornerRadius = 10
+        layer.masksToBounds = true
+        return layer
+    }()
+    
      init(frame: CGRect,datas:  [KLineModel], scrollX: CGFloat,isLine: Bool, scaleX: CGFloat, isLongPress: Bool, mainState: MainState, secondaryState: SecondaryState) {
         super.init(frame: frame)
         self.datas = datas
@@ -363,9 +372,18 @@ class KLinePainterView: UIView {
             context.setFillColor(ChartColors.bgColor.cgColor)
             context.drawPath(using: CGPathDrawingMode.fill)
             (text as NSString).draw(at: CGPoint(x: self.frame.width - rect.width, y: y - rect.height / 2), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize), NSAttributedString.Key.foregroundColor : ChartColors.reightTextColor])
-    
+            if isLine {
+                context.setFillColor(UIColor.white.cgColor)
+                context.addArc(center: CGPoint(x: self.frame.width + scrollX - candleWidth / 2, y: y), radius: 2, startAngle: 0, endAngle: CGFloat(Double.pi * 2.0), clockwise: true)
+                context.drawPath(using: CGPathDrawingMode.fill)
+                
+                context.setFillColor(UIColor(white: 255, alpha: 0.3).cgColor)
+                context.addArc(center: CGPoint(x: self.frame.width + scrollX - candleWidth / 2, y: y), radius: 6, startAngle: 0, endAngle: CGFloat(Double.pi * 2.0), clockwise: true)
+                               context.drawPath(using: CGPathDrawingMode.fill)
+//                self.fuzzylayer.frame = CGRect(x: self.frame.width + scrollX - candleWidth / 2 - 10, y: y - 10, width: 20, height: 20)
+//                self.layer.addSublayer(self.fuzzylayer)
+            }
         } else {
-            
             context.setStrokeColor(ChartColors.realTimeLongLineColor.cgColor)
             context.setLineWidth(0.5)
             context.setLineDash(phase: 0, lengths: [10,5])
@@ -379,9 +397,7 @@ class KLinePainterView: UIView {
             context.setLineDash(phase: 0, lengths: [])
             context.setFillColor(ChartColors.bgColor.cgColor)
             context.move(to: CGPoint(x: self.frame.width * 0.8, y: y - r))
-            
             let curX = self.frame.width * 0.8
-            
             let arcRect = CGRect(x: curX - w / 2, y:  y - r, width: w, height: 2 * r)
             let minX = arcRect.minX
             let midX = arcRect.midX

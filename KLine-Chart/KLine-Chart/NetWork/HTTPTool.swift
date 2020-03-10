@@ -34,7 +34,6 @@ class HTTPTool: NSObject {
                     DispatchQueue.main.async {
                          complationBlock(datas)
                     }
-                   
                     return
                 }
             }
