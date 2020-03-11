@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) CGFloat vol;
 @property(nonatomic,assign) CGFloat amount;
 @property(nonatomic,assign) CGFloat count;
-@property(nonatomic,assign) double Id;
+@property(nonatomic,assign) double id;
 
 @property(nonatomic,assign) CGFloat MA5Price;
 @property(nonatomic,assign) CGFloat MA10Price;

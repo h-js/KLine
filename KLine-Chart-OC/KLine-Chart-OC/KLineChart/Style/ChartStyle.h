@@ -6,6 +6,7 @@
 //  Copyright © 2020 hjs. All rights reserved.
 //
 
+#import "UIColor+RGB.h"
 
 #define Color(rgbValue)  [UIColor rgbFromHex:rgbValue]
 

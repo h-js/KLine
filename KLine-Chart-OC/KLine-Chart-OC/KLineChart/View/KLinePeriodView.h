@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface KLinePeriodView : UIView
-
++(KLinePeriodView *)linePeriodView;
 @end
 
 NS_ASSUME_NONNULL_END

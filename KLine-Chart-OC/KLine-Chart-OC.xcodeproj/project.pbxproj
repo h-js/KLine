@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6EB302062418F8A70078A076 /* HTTPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB302052418F8A70078A076 /* HTTPTool.m */; };
 		6EB31D2E2417AAEB00FAF31B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D2D2417AAEB00FAF31B /* AppDelegate.m */; };
 		6EB31D312417AAEB00FAF31B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D302417AAEB00FAF31B /* SceneDelegate.m */; };
 		6EB31D342417AAEB00FAF31B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D332417AAEB00FAF31B /* ViewController.m */; };
@@ -36,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6EB302042418F8A70078A076 /* HTTPTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPTool.h; sourceTree = "<group>"; };
+		6EB302052418F8A70078A076 /* HTTPTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPTool.m; sourceTree = "<group>"; };
 		6EB31D292417AAEB00FAF31B /* KLine-Chart-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLine-Chart-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB31D2C2417AAEB00FAF31B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EB31D2D2417AAEB00FAF31B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6EB302032418F88A0078A076 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				6EB302042418F8A70078A076 /* HTTPTool.h */,
+				6EB302052418F8A70078A076 /* HTTPTool.m */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
 		6EB31D202417AAEB00FAF31B = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +127,7 @@
 		6EB31D2B2417AAEB00FAF31B /* KLine-Chart-OC */ = {
 			isa = PBXGroup;
 			children = (
+				6EB302032418F88A0078A076 /* NetWork */,
 				6EB31D452417AB3000FAF31B /* KLineChart */,
 				6EB31D2C2417AAEB00FAF31B /* AppDelegate.h */,
 				6EB31D2D2417AAEB00FAF31B /* AppDelegate.m */,
@@ -302,6 +315,7 @@
 				6EB70D442417AD9D0090EE76 /* KLineVerticalIndicatorsView.m in Sources */,
 				6EB31D312417AAEB00FAF31B /* SceneDelegate.m in Sources */,
 				6EB31D6E2417ACDB00FAF31B /* UIColor+RGB.m in Sources */,
+				6EB302062418F8A70078A076 /* HTTPTool.m in Sources */,
 				6EB31D502417ABC900FAF31B /* KLineChartView.m in Sources */,
 				6EB31D592417AC2600FAF31B /* KLineState.m in Sources */,
 				6EB31D762417AD3600FAF31B /* KLinePeriodView.m in Sources */,

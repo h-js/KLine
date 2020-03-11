@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface KLineIndicatorsView : UIView
-
++(KLineIndicatorsView *)indicatorsView;
+-(void)correctState;
 @end
 
 NS_ASSUME_NONNULL_END
