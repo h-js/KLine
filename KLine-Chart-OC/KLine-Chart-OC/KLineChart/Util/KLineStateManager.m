@@ -13,6 +13,17 @@
 static KLineStateManager *_manager = nil;
 @implementation KLineStateManager
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _mainState = MainStateMA;
+        _secondaryState = SecondaryStateMacd;
+        _isLine = true;
+    }
+    return self;
+}
+
 +(instancetype)manager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

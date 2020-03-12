@@ -52,6 +52,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(CGFloat)getY:(CGFloat)value;
 
+//下列提供给子类的工具方法
+-(void)drawText:(NSString *)text
+        atPoint:(CGPoint)point
+       fontSize:(CGFloat)size
+      textColor:(UIColor *)color;
+
+-(NSString *)volFormat:(CGFloat)value;
 @end
 
 NS_ASSUME_NONNULL_END

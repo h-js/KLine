@@ -34,13 +34,73 @@
 
 @implementation KLineChartView
 
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    self.painterView.frame = self.bounds;
+    [self initIndicatirs];
+}
+
+- (void)setDatas:(NSArray<KLineModel *> *)datas {
+    _datas = datas;
+    [self initIndicatirs];
+    self.painterView.datas = datas;
+}
+
+- (void)setIsLine:(BOOL)isLine {
+    _isLine = isLine;
+    self.painterView.isLine = isLine;
+}
+
+- (void)setIsLongPress:(BOOL)isLongPress {
+    _isLongPress = isLongPress;
+    self.painterView.isLongPress = isLongPress;
+    if(!isLongPress) {
+        [self.infoView removeFromSuperview];
+    }
+}
+
+-(void)setScrollX:(CGFloat)scrollX {
+    _scrollX = scrollX;
+    self.painterView.scrollX = scrollX;
+}
+
+- (void)setScaleX:(CGFloat)scaleX {
+    _scaleX = scaleX;
+    [self initIndicatirs];
+    self.painterView.scaleX = scaleX;
+}
+
+- (void)setMainState:(MainState)mainState {
+    _mainState = mainState;
+    self.painterView.mainState = mainState;
+}
+
+-(void)setSecondaryState:(SecondaryState)secondaryState {
+    _secondaryState = secondaryState;
+    self.painterView.secondaryState = secondaryState;
+}
+
+-(void)setLongPressX:(CGFloat)longPressX {
+    _longPressX = longPressX;
+    self.painterView.longPressX = longPressX;
+}
+
+-(void)setDirection:(KLineDirection)direction {
+    _direction = direction;
+    self.painterView.direction = direction;
+}
+
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _scaleX = -self.frame.size.width / 5 + ChartStyle_candleWidth / 2;
+        _scaleX = 1;
+        _mainState = MainStateMA;
+        _secondaryState = SecondaryStateWR;
+        _scrollX = -self.frame.size.width / 5 + ChartStyle_candleWidth / 2;
         [self initIndicatirs];
-        _painterView = [[KLinePainterView alloc] initWithFrame:self.bounds datas:_datas scrollX:_scaleX isLine:_isLine scaleX:_scaleX isLongPress:_isLongPress mainState:_mainState secondaryState:_secondaryState];
+        _painterView = [[KLinePainterView alloc] initWithFrame:self.bounds datas:_datas scrollX:_scrollX isLine:_isLine scaleX:_scaleX isLongPress:_isLongPress mainState:_mainState secondaryState:_secondaryState];
         [self addSubview:_painterView];
          __weak typeof(self) weakSelf = self;
         _painterView.showInfoBlock = ^(KLineModel * _Nonnull model, BOOL isLeft) {
@@ -72,10 +132,10 @@
         _maxScroll =  -(self.frame.size.width - dataLength);
     }
     CGFloat dataScroll = self.frame.size.width - dataLength;
-    CGFloat normalminScroll = -self.frame.size.width/5 + (ChartStyle_candleWidth * _scaleX) / 2;
-    _minScroll = MIN(normalminScroll,-dataScroll);
-    _scrollX = [self clamp:_scrollX min:_minScroll max:_maxScroll];
-    _lastScrollX = _scrollX;
+    CGFloat normalminScroll = -self.frame.size.width/5.0 + (ChartStyle_candleWidth * _scaleX) / (CGFloat)2.0;
+    self.minScroll = MIN(normalminScroll,-dataScroll);
+    self.scrollX = [self clamp:_scrollX min:_minScroll max:_maxScroll];
+    self.lastScrollX = self.scrollX;
     
 }
 
@@ -91,14 +151,14 @@
         {
             CGPoint point = [gesture locationInView:self.painterView];
             CGFloat dragX = point.x - _dragbeginX;
-            _scrollX = [self clamp:_lastScrollX + dragX min:_minScroll max:_maxScroll];
+            self.scrollX = [self clamp:_lastScrollX + dragX min:_minScroll max:_maxScroll];
         } break;
         case UIGestureRecognizerStateEnded:
         {
             CGPoint speed = [gesture velocityInView:self.painterView];
             self.speedX = speed.x;
             _isDrag = false;
-            self.lastScrollX = self.scaleX;
+            self.lastScrollX = self.scrollX;
             if(speed.x != 0) {
                 _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refreshEvent:)];
                 [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
@@ -159,7 +219,7 @@
     } else if (self.speedX > 0) {
         self.speedX = MAX(self.speedX - space,0);
         self.scrollX = [self clamp:self.scrollX + 5 min:_minScroll max:_maxScroll];
-        self.lastscaleX = self.scrollX;
+        self.lastScrollX = self.scrollX;
     } else {
         [_displayLink invalidate];
         _displayLink = nil;

@@ -315,7 +315,7 @@ class KLinePainterView: UIView {
         context.setFillColor(ChartColors.bgColor.cgColor)
         context.addRect(CGRect(x: curX - dateRect.width / 2 - datepadding, y: self.dateRect.minY, width: dateRect.width + 2 * datepadding, height: dateRect.height + datepadding * 2))
         context.drawPath(using: CGPathDrawingMode.fillStroke)
-        (dateText as NSString).draw(at: CGPoint(x: curX - dateRect.width / 2, y: self.dateRect.minY + padding), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor : UIColor.white])
+        (dateText as NSString).draw(at: CGPoint(x: curX - dateRect.width / 2, y: self.dateRect.minY + datepadding), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor : UIColor.white])
         
         showInfoBlock?(curPoint,isLeft)
         self.drawTopText(context: context, curPoint: curPoint)

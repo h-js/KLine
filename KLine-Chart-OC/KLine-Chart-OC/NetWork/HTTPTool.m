@@ -34,40 +34,43 @@ static HTTPTool *tool = nil;
     
     NSURLSession *session = [NSURLSession sharedSession];
     
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:requst completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if(error == nil) {
-           NSDictionary *dict =  [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingFragmentsAllowed error:nil];
-            NSArray<NSDictionary *> *dicts = dict[@"data"];
-            NSMutableArray *array = [NSMutableArray arrayWithCapacity:100];
-            for (int i = 0; i < dicts.count; i++) {
-                NSDictionary *item = dicts[i];
-                [array addObject:[[KLineModel alloc] initWithDict:item]];
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                complationBlock(array);
-            });
-        } else {
-            NSArray *datas = [self getLocalData];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                complationBlock(datas);
-            });
-        }
-    }];
-    [dataTask resume];
+    NSArray *datas = [self getLocalData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        complationBlock(datas);
+    });
+//    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:requst completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        if(error == nil) {
+//           NSDictionary *dict =  [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingFragmentsAllowed error:nil];
+//            NSArray<NSDictionary *> *dicts = dict[@"data"];
+//            NSMutableArray *array = [NSMutableArray arrayWithCapacity:100];
+//            for (int i = 0; i < dicts.count; i++) {
+//                NSDictionary *item = dicts[i];
+//                [array addObject:[[KLineModel alloc] initWithDict:item]];
+//            }
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                complationBlock(array);
+//            });
+//        } else {
+//            NSArray *datas = [self getLocalData];
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                complationBlock(datas);
+//            });
+//        }
+//    }];
+//    [dataTask resume];
 }
 
 -(NSArray<KLineModel *> *)getLocalData {
    NSString *path = [[NSBundle mainBundle] pathForResource:@"kline" ofType:@"json"];
    NSDate *data = [[NSData alloc] initWithContentsOfURL: [[NSURL alloc] initFileURLWithPath:path]];
-   NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingFragmentsAllowed error:nil];
-   NSArray<NSDictionary *> *dicts = dict[@"data"];
+    NSArray<NSDictionary *> *dicts = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingFragmentsAllowed error:nil];
+//   NSArray<NSDictionary *> *dicts = dict[@"data"];
    NSMutableArray *array = [NSMutableArray arrayWithCapacity:100];
    for (int i = 0; i < dicts.count; i++) {
        NSDictionary *item = dicts[i];
        [array addObject:[[KLineModel alloc] initWithDict:item]];
     }
     return array;
-    
 }
 
 

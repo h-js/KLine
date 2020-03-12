@@ -98,7 +98,7 @@
 -(void)correctState {
     switch ([KLineStateManager manager].mainState) {
         case MainStateMA:
-            [self mainhideClick:self.maButton];
+            [self mainbuttonClick:self.maButton];
             break;
         case MainStateBOLL:
             [self mainbuttonClick:self.bollButton];

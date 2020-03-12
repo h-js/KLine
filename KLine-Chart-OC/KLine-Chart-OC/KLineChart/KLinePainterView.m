@@ -11,6 +11,7 @@
 #import "VolChartRenderer.h"
 #import "SecondaryChartRenderer.h"
 #import "ChartStyle.h"
+#import "NSString+Rect.h"
 
 @interface KLinePainterView()
 @property(nonatomic,assign) CGFloat displayHeight;
@@ -50,6 +51,41 @@
 
 @implementation KLinePainterView
 
+- (void)setDatas:(NSArray<KLineModel *> *)datas {
+    _datas = datas;
+    [self setNeedsDisplay];
+}
+
+-(void)setScrollX:(CGFloat)scrollX {
+    _scrollX = scrollX;
+    [self setNeedsDisplay];
+}
+
+-(void)setIsLine:(BOOL)isLine {
+    _isLine = isLine;
+     [self setNeedsDisplay];
+}
+-(void)setScaleX:(CGFloat)scaleX {
+    _scaleX = scaleX;
+    self.candleWidth = scaleX * ChartStyle_candleWidth;
+    [self setNeedsDisplay];
+}
+- (void)setIsLongPress:(BOOL)isLongPress {
+    _isLongPress = isLongPress;
+    [self setNeedsDisplay];
+}
+
+-(void)setMainState:(MainState)mainState {
+    _mainState = mainState;
+    [self setNeedsDisplay];
+}
+
+- (void)setSecondaryState:(SecondaryState)secondaryState {
+    _secondaryState = secondaryState;
+    [self setNeedsDisplay];
+}
+
+
 - (instancetype)initWithFrame:(CGRect)frame
                         datas:(NSArray<KLineModel *> *)datas
                       scrollX:(CGFloat)scrollX
@@ -84,7 +120,7 @@
         [self drawBgColor:context rect:rect];
         [self drawGrid:context];
         if(self.datas.count == 0) { return; }
-        [self drawGrid:context];
+        [self drawChart:context];
         [self drawRightText:context];
         [self drawDate:context];
         [self drawMaxAndMin:context];
@@ -162,6 +198,7 @@
         [self getVolMaxMinValue:item];
         [self getSecondaryMaxMinValue:item];
     }
+    NSLog(@"startIndex=%ld,endIndex=%ld",_startIndex, _stopIndex);
 }
 
 -(void)getMianMaxMinValue:(KLineModel *)item i:(NSUInteger)i {
@@ -255,6 +292,8 @@
 }
 
 -(void)drawBgColor:(CGContextRef)context rect:(CGRect)rect {
+     CGContextSetFillColorWithColor(context, ChartColors_bgColor.CGColor);
+     CGContextFillRect(context, rect);
       [_mainRenderer drawBg:context];
       if(_volRenderer != nil) {
           [_volRenderer drawBg:context];
@@ -264,29 +303,30 @@
       }
 }
 -(void)drawGrid:(CGContextRef)context {
-    [_mainRenderer drawGrid:context gridRows:ChartStyle_gridRows gridColums:ChartStyle_gridRows];
+    [_mainRenderer drawGrid:context gridRows:ChartStyle_gridRows gridColums:ChartStyle_gridColumns];
    if(_volRenderer != nil) {
-       [_volRenderer drawGrid:context gridRows:ChartStyle_gridRows gridColums:ChartStyle_gridRows];
+       [_volRenderer drawGrid:context gridRows:ChartStyle_gridRows gridColums:ChartStyle_gridColumns];
    }
    if(_seconderyRender != nil) {
-       [_seconderyRender drawGrid:context gridRows:ChartStyle_gridRows gridColums:ChartStyle_gridRows];
+       [_seconderyRender drawGrid:context gridRows:ChartStyle_gridRows gridColums:ChartStyle_gridColumns];
    }
 }
 -(void)drawChart:(CGContextRef)context {
     for (NSUInteger index = _startIndex; index <= _stopIndex; index++) {
         KLineModel *curPoint = self.datas[index];
         CGFloat itemWidth = _candleWidth + ChartStyle_canldeMargin;
-        CGFloat curX = (CGFloat)(index - _stopIndex) * itemWidth + _startX;
+        CGFloat curX = (CGFloat)(index - _startIndex) * itemWidth + _startX;
+        CGFloat _curX = self.frame.size.width - curX - _candleWidth / 2;
         KLineModel *lastPoint;
         if(index != _startIndex) {
             lastPoint = self.datas[index - 1];
         }
-        [_mainRenderer drawChart:context lastPoit:lastPoint curPoint:curPoint curX:curX];
+        [_mainRenderer drawChart:context lastPoit:lastPoint curPoint:curPoint curX:_curX];
         if(_volRenderer != nil) {
-            [_volRenderer drawChart:context lastPoit:lastPoint curPoint:curPoint curX:curX];
+            [_volRenderer drawChart:context lastPoit:lastPoint curPoint:curPoint curX:_curX];
         }
         if(_seconderyRender != nil) {
-            [_seconderyRender drawChart:context lastPoit:lastPoint curPoint:curPoint curX:curX];
+            [_seconderyRender drawChart:context lastPoit:lastPoint curPoint:curPoint curX:_curX];
         }
     }
 }
@@ -300,14 +340,120 @@
     }
 }
 -(void)drawDate:(CGContextRef)context {
-    
+    CGFloat cloumSpace = self.frame.size.width / (CGFloat)ChartStyle_gridColumns;
+    for (int i = 0; i < ChartStyle_gridColumns; i++) {
+        NSUInteger index = [self calculateIndexWithSelectX: cloumSpace * (CGFloat)i];
+        if([self outRangeIndex:index]) { continue; }
+        KLineModel *data = self.datas[index];
+        NSString *dataStr = [self calculateDateText:data.id];
+        CGRect rect = [dataStr getRectWithFontSize:ChartStyle_bottomDatefontSize];
+        CGFloat y = CGRectGetMinY(self.dateRect) + (ChartStyle_bottomDateHigh - rect.size.height) / 2;
+        [self.mainRenderer drawText:dataStr atPoint:CGPointMake(cloumSpace * i - rect.size.width / 2, y) fontSize:ChartStyle_bottomDatefontSize textColor:ChartColors_bottomDateTextColor];
+    }
 }
 -(void)drawMaxAndMin:(CGContextRef)context {
+    if(_isLine) { return; }
+    CGFloat itemWidth = self.candleWidth + ChartStyle_canldeMargin;
+    CGFloat y1 = [self.mainRenderer getY:_mMainHighMaxValue];
+    CGFloat x1 = self.frame.size.width - ((self.mMainMaxIndex - self.startIndex) * itemWidth + self.startX + self.candleWidth / 2);
+    if(x1 < self.frame.size.width / 2) {
+        NSString *text = [NSString stringWithFormat:@"——%.2f",_mMainHighMaxValue];
+        CGRect rect = [text getRectWithFontSize:ChartStyle_defaultTextSize];
+        [self.mainRenderer drawText:text atPoint:CGPointMake(x1, y1 - rect.size.height / 2) fontSize:ChartStyle_defaultTextSize textColor:[UIColor whiteColor]];
+    } else {
+        NSString *text = [NSString stringWithFormat:@"%.2f——",_mMainHighMaxValue];
+       CGRect rect = [text getRectWithFontSize:ChartStyle_defaultTextSize];
+       [self.mainRenderer drawText:text atPoint:CGPointMake(x1 - rect.size.width, y1 - rect.size.height / 2) fontSize:ChartStyle_defaultTextSize textColor:[UIColor whiteColor]];
+    }
     
+    CGFloat y2 = [self.mainRenderer getY:_mMainLowMinValue];
+    CGFloat x2 = self.frame.size.width - ((self.mMainMinIndex - self.startIndex) * itemWidth + self.startX + self.candleWidth / 2);
+    if(x2 < self.frame.size.width / 2) {
+        NSString *text = [NSString stringWithFormat:@"——%.2f",_mMainLowMinValue];
+        CGRect rect = [text getRectWithFontSize:ChartStyle_defaultTextSize];
+        [self.mainRenderer drawText:text atPoint:CGPointMake(x2, y2 - rect.size.height / 2) fontSize:ChartStyle_defaultTextSize textColor:[UIColor whiteColor]];
+    } else {
+        NSString *text = [NSString stringWithFormat:@"%.2f——",_mMainLowMinValue];
+       CGRect rect = [text getRectWithFontSize:ChartStyle_defaultTextSize];
+       [self.mainRenderer drawText:text atPoint:CGPointMake(x2 - rect.size.width, y2 - rect.size.height / 2) fontSize:ChartStyle_defaultTextSize textColor:[UIColor whiteColor]];
+    }
 }
 -(void)drawLongPressCrossLine:(CGContextRef)context {
+    NSUInteger index = [self calculateIndexWithSelectX:self.longPressX];
+    if([self outRangeIndex:index]) { return; }
+    KLineModel *point = self.datas[index];
+    CGFloat itemWidth = _candleWidth + ChartStyle_canldeMargin;
+    CGFloat curX = self.frame.size.width - ((index - self.startIndex) * itemWidth + self.startX + self.candleWidth / 2);
+    CGContextSetStrokeColorWithColor(context, ChartColors_crossHlineColor.CGColor);
+    CGContextSetLineWidth(context, _candleWidth);
+    CGContextMoveToPoint(context, curX, 0);
+    CGContextAddLineToPoint(context, curX, self.frame.size.height);
+    CGContextDrawPath(context, kCGPathStroke);
     
+    CGFloat y = [self.mainRenderer getY:point.close];
+    
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextSetLineWidth(context, 0.5);
+    CGContextMoveToPoint(context, 0, y);
+    CGContextAddLineToPoint(context, self.frame.size.width, y);
+    CGContextDrawPath(context, kCGPathStroke);
+    
+    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextAddArc(context, curX, y, 2, 0, M_PI_2, true);
+    CGContextDrawPath(context, kCGPathFill);
+    [self drawLongPressCrossLineText:context curPoint:point curX:curX y:y];
 }
+
+-(void)drawLongPressCrossLineText:(CGContextRef)context curPoint:(KLineModel *)curPoint curX:(CGFloat)curX y:(CGFloat)y {
+    NSString *text = [NSString stringWithFormat:@"%.2f",curPoint.close];
+    CGRect rect = [text getRectWithFontSize:ChartStyle_defaultTextSize];
+    CGFloat padding = 3;
+    CGFloat textHeight = rect.size.height + padding * 2;
+    CGFloat textWdith = rect.size.width;
+    BOOL isLeft = false;
+    if(curX > self.frame.size.width / 2) {
+        isLeft = true;
+        CGContextMoveToPoint(context, self.frame.size.width, y - textHeight / 2);
+        CGContextAddLineToPoint(context, self.frame.size.width, y + textHeight / 2);
+        
+        CGContextAddLineToPoint(context, self.frame.size.width - textWdith, y + textHeight / 2);
+        CGContextAddLineToPoint(context, self.frame.size.width - textWdith - 10, y);
+        CGContextAddLineToPoint(context, self.frame.size.width - textWdith, y - textHeight / 2);
+        CGContextAddLineToPoint(context, self.frame.size.width, y - textHeight / 2);
+        CGContextSetLineWidth(context, 1);
+        CGContextSetStrokeColorWithColor(context, ChartColors_markerBorderColor.CGColor);
+        CGContextSetFillColorWithColor(context, ChartColors_markerBgColor.CGColor);
+        CGContextDrawPath(context, kCGPathFillStroke);
+        [self.mainRenderer drawText:text atPoint:CGPointMake(self.frame.size.width - textWdith - 2, y - rect.size.height / 2) fontSize:ChartStyle_defaultTextSize textColor: [UIColor whiteColor]];
+    } else {
+        
+        isLeft = true;
+        CGContextMoveToPoint(context, 0, y - textHeight / 2);
+        CGContextAddLineToPoint(context, 0, y + textHeight / 2);
+        
+        CGContextAddLineToPoint(context, textWdith, y + textHeight / 2);
+        CGContextAddLineToPoint(context,textWdith + 10, y);
+        CGContextAddLineToPoint(context,textWdith, y - textHeight / 2);
+        CGContextAddLineToPoint(context, 0, y - textHeight / 2);
+        CGContextSetLineWidth(context, 1);
+        CGContextSetStrokeColorWithColor(context, ChartColors_markerBorderColor.CGColor);
+        CGContextSetFillColorWithColor(context, ChartColors_markerBgColor.CGColor);
+        CGContextDrawPath(context, kCGPathFillStroke);
+        [self.mainRenderer drawText:text atPoint:CGPointMake(2, y - rect.size.height / 2) fontSize:ChartStyle_defaultTextSize textColor: [UIColor whiteColor]];
+    }
+    
+    NSString *dateText = [self calculateDateText:curPoint.id];
+    CGRect dateRect = [dateText getRectWithFontSize:ChartStyle_defaultTextSize];
+    CGFloat datepadding = 3;
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextSetFillColorWithColor(context, ChartColors_bgColor.CGColor);
+    CGContextAddRect(context, CGRectMake(curX - dateRect.size.width / 2 - datepadding, CGRectGetMinY(self.dateRect), dateRect.size.width + datepadding * 2, dateRect.size.height + datepadding * 2));
+    CGContextDrawPath(context, kCGPathFillStroke);
+    [self.mainRenderer drawText:dateText atPoint:CGPointMake(curX - dateRect.size.width  / 2, CGRectGetMinY(self.dateRect) + datepadding) fontSize:ChartStyle_defaultTextSize textColor: [UIColor whiteColor]];
+    self.showInfoBlock(curPoint, isLeft);
+    [self drawTopText:context curPoint:curPoint];
+}
+
 -(void)drawTopText:(CGContextRef)context curPoint:(KLineModel *)curPoint {
     [_mainRenderer drawTopText:context curPoint:curPoint];
     if(_volRenderer != nil) {
@@ -332,6 +478,13 @@
     } else {
         return false;
     }
+}
+
+-(NSString *)calculateDateText:(NSTimeInterval)time {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    formater.dateFormat = self.fromat;
+    return [formater stringFromDate:date];
 }
 
 

@@ -39,6 +39,7 @@
 -(void)drawRightText:(CGContextRef)context
             gridRows:(NSUInteger)gridRows
           gridColums:(NSUInteger)gridColums {
+
     
 }
 
@@ -49,14 +50,17 @@
 -(void)drawBg:(CGContextRef)context {
     CGContextClipToRect(context, _chartRect);
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGFloat compoents[] = {(0x0E/255), (0x19/255), (0x25/255), 1,
-        (0x0E/255), (0x20/255), (0x34/255), 1};
     CGFloat locations[] = {0,1};
-    CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, compoents, locations, 2);
+    NSArray *colors = @[(__bridge id)[UIColor rgb_r:0x0E g:0x19 b:0x25 alpha:1].CGColor, (__bridge id)[UIColor rgb_r:0x0E g:0x20 b:0x34 alpha:1].CGColor];
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef) colors, locations);
+    CGColorSpaceRelease(colorSpace);
     CGPoint start = CGPointMake(_chartRect.size.width / 2, CGRectGetMinY(_chartRect));
     CGPoint end = CGPointMake(_chartRect.size.width / 2, CGRectGetMaxY(_chartRect));
-    CGContextDrawLinearGradient(context, gradient, start, end, kCGGradientDrawsBeforeStartLocation);
+    CGContextDrawLinearGradient(context, gradient, start, end, 0);
     CGContextResetClip(context);
+    
+    CGColorSpaceRelease(colorSpace);
+    CGGradientRelease(gradient);
 }
 
 -(void)drawChart:(CGContextRef)context
@@ -81,8 +85,25 @@
     CGContextDrawPath(context, kCGPathFillStroke);
 }
 
+-(void)drawText:(NSString *)text atPoint:(CGPoint)point fontSize:(CGFloat)size textColor:(UIColor *)color {
+    [text drawAtPoint:point withAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:size],NSForegroundColorAttributeName: color}];
+}
+
 -(CGFloat)getY:(CGFloat)value {
     return _scaleY * (_maxValue - value) + CGRectGetMinY(_chartRect) + _topPadding;
 }
+
+-(NSString *)volFormat:(CGFloat)value {
+    if (value > 10000 && value < 999999) {
+         CGFloat d = value / 1000;
+         return  [NSString stringWithFormat:@"%.2fK",d];
+       } else if (value > 1000000) {
+         CGFloat d = value / 1000000;
+         return [NSString stringWithFormat:@"%.2fM",d];
+       }
+       return [NSString stringWithFormat:@"%.2f",value];
+    
+}
+
 
 @end

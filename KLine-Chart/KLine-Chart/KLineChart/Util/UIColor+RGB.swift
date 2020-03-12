@@ -10,8 +10,7 @@ import UIKit
 //颜色转换
 extension UIColor {
     
-    static func rgb(r:CGFloat,_ g:CGFloat,_ b:CGFloat,alpha : CGFloat = 1) -> UIColor
-    {
+    static func rgb(r:CGFloat,_ g:CGFloat,_ b:CGFloat,alpha : CGFloat = 1) -> UIColor {
         return UIColor(red: (r)/255.0, green: (g)/255.0, blue: (b)/255.0, alpha: alpha)
     }
     

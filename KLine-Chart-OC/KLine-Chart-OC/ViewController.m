@@ -29,8 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor rgb_r:8 g:23 b:5 alpha:1];
-    
+    self.view.backgroundColor = [UIColor rgb_r:8 g:23 b:35 alpha:1];
+    [KLineStateManager manager].klineChart = self.klineCharView;
     [[HTTPTool tool] getData:@"" complation:^(NSArray<KLineModel *> * _Nonnull models) {
         [DataUtil calculate:models];
         [KLineStateManager manager].datas = models;

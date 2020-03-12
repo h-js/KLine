@@ -13,6 +13,7 @@
 
 +(void)calculate:(NSArray<KLineModel *> *)dataList {
     if(dataList == nil) { return; }
+    dataList = [[dataList reverseObjectEnumerator] allObjects];
     [self calcMA:dataList isLast:false];
     [self calcBOLL:dataList isLast:false];
     [self calcVolumeMA:dataList isLast:false];
