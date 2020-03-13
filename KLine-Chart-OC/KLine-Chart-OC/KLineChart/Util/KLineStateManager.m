@@ -19,7 +19,7 @@ static KLineStateManager *_manager = nil;
     if (self) {
         _mainState = MainStateMA;
         _secondaryState = SecondaryStateMacd;
-        _isLine = true;
+        _isLine = false;
     }
     return self;
 }

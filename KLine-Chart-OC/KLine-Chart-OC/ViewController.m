@@ -42,7 +42,7 @@
      [self.view addSubview:self.verticalIndicatorsView];
     
     [self verticalLayout];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chageRotate:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chageRotate:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     
 }
 

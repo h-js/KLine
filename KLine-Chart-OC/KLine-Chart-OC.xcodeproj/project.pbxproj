@@ -13,7 +13,6 @@
 		6EAB4E1B241A61C200A1388E /* NSString+Rect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAB4E1A241A61C200A1388E /* NSString+Rect.m */; };
 		6EB302062418F8A70078A076 /* HTTPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB302052418F8A70078A076 /* HTTPTool.m */; };
 		6EB31D2E2417AAEB00FAF31B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D2D2417AAEB00FAF31B /* AppDelegate.m */; };
-		6EB31D312417AAEB00FAF31B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D302417AAEB00FAF31B /* SceneDelegate.m */; };
 		6EB31D342417AAEB00FAF31B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D332417AAEB00FAF31B /* ViewController.m */; };
 		6EB31D372417AAEB00FAF31B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB31D352417AAEB00FAF31B /* Main.storyboard */; };
 		6EB31D392417AAEC00FAF31B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB31D382417AAEC00FAF31B /* Assets.xcassets */; };
@@ -51,8 +50,6 @@
 		6EB31D292417AAEB00FAF31B /* KLine-Chart-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLine-Chart-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB31D2C2417AAEB00FAF31B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EB31D2D2417AAEB00FAF31B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6EB31D2F2417AAEB00FAF31B /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		6EB31D302417AAEB00FAF31B /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		6EB31D322417AAEB00FAF31B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6EB31D332417AAEB00FAF31B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6EB31D362417AAEB00FAF31B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,8 +148,6 @@
 				6EB31D452417AB3000FAF31B /* KLineChart */,
 				6EB31D2C2417AAEB00FAF31B /* AppDelegate.h */,
 				6EB31D2D2417AAEB00FAF31B /* AppDelegate.m */,
-				6EB31D2F2417AAEB00FAF31B /* SceneDelegate.h */,
-				6EB31D302417AAEB00FAF31B /* SceneDelegate.m */,
 				6EB31D322417AAEB00FAF31B /* ViewController.h */,
 				6EB31D332417AAEB00FAF31B /* ViewController.m */,
 				6EB31D352417AAEB00FAF31B /* Main.storyboard */,
@@ -339,7 +334,6 @@
 				6EB31D622417AC6B00FAF31B /* VolChartRenderer.m in Sources */,
 				6EB31D652417AC8100FAF31B /* SecondaryChartRenderer.m in Sources */,
 				6EB70D442417AD9D0090EE76 /* KLineVerticalIndicatorsView.m in Sources */,
-				6EB31D312417AAEB00FAF31B /* SceneDelegate.m in Sources */,
 				6EB31D6E2417ACDB00FAF31B /* UIColor+RGB.m in Sources */,
 				6EB302062418F8A70078A076 /* HTTPTool.m in Sources */,
 				6EB31D502417ABC900FAF31B /* KLineChartView.m in Sources */,
@@ -486,7 +480,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4EWH2ZGL8V;
 				INFOPLIST_FILE = "KLine-Chart-OC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,7 +498,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4EWH2ZGL8V;
 				INFOPLIST_FILE = "KLine-Chart-OC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
