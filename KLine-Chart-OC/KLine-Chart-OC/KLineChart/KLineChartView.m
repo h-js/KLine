@@ -126,11 +126,12 @@
 
 -(void)initIndicatirs {
     CGFloat dataLength = ((CGFloat)_datas.count) * (ChartStyle_candleWidth * _scaleX + ChartStyle_canldeMargin) - ChartStyle_canldeMargin;
-    if(dataLength > self.frame.size.width) {
-        _maxScroll = dataLength - self.frame.size.width;
-    } else {
-        _maxScroll =  -(self.frame.size.width - dataLength);
-    }
+      _maxScroll = dataLength - self.frame.size.width;
+//    if(dataLength > self.frame.size.width) {
+//        _maxScroll = dataLength - self.frame.size.width;
+//    } else {
+//        _maxScroll =  -(self.frame.size.width - dataLength);
+//    }
     CGFloat dataScroll = self.frame.size.width - dataLength;
     CGFloat normalminScroll = -self.frame.size.width/5.0 + (ChartStyle_candleWidth * _scaleX) / (CGFloat)2.0;
     self.minScroll = MIN(normalminScroll,-dataScroll);

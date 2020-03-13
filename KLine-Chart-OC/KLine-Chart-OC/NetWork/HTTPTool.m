@@ -66,7 +66,7 @@ static HTTPTool *tool = nil;
     NSArray<NSDictionary *> *dicts = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingFragmentsAllowed error:nil];
 //   NSArray<NSDictionary *> *dicts = dict[@"data"];
    NSMutableArray *array = [NSMutableArray arrayWithCapacity:100];
-   for (int i = 0; i < dicts.count; i++) {
+   for (int i = 10; i < 11; i++) {
        NSDictionary *item = dicts[i];
        [array addObject:[[KLineModel alloc] initWithDict:item]];
     }

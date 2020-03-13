@@ -192,7 +192,7 @@
     _mVolMinValue = CGFLOAT_MAX;
     _mSecondaryMaxValue = -CGFLOAT_MAX;
     _mSecondaryMinValue = CGFLOAT_MAX;
-    for (NSUInteger index = _startIndex; index < _stopIndex; index++) {
+    for (NSUInteger index = _startIndex; index <= _stopIndex; index++) {
         KLineModel *item = self.datas[index];
         [self getMianMaxMinValue:item i:index];
         [self getVolMaxMinValue:item];
@@ -544,7 +544,7 @@
 }
 
 -(BOOL)outRangeIndex:(NSUInteger)index {
-    if(index < 0 && index >= self.datas.count) {
+    if(index < 0 || index >= self.datas.count) {
         return true;
     } else {
         return false;
