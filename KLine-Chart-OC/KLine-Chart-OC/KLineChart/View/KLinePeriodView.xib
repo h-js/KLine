@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="KLinePeriodView">
+            <rect key="frame" x="0.0" y="0.0" width="526" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqc-d5-QwW">
+                    <rect key="frame" x="28.666666666666671" y="48" width="18" height="2"/>
+                    <color key="backgroundColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="18" id="87k-1P-8uL"/>
+                        <constraint firstAttribute="height" constant="2" id="I8b-wz-4PF"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neu-cb-o6z">
+                    <rect key="frame" x="375.66666666666669" y="0.0" width="75.333333333333314" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Nfo-70-LEo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="日线">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="k1E-dZ-cz0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3v-9y-Yno">
+                    <rect key="frame" x="225.33333333333334" y="0.0" width="75.333333333333343" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="6Ug-I8-ff1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="1小时">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="hXd-Dh-yMf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C46-ZL-4vi">
+                    <rect key="frame" x="150.33333333333334" y="0.0" width="75" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="452-d3-M57"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="30分">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="rt6-rP-1Ur"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ww9-gT-Q8N">
+                    <rect key="frame" x="75" y="0.0" width="75.333333333333314" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="wJt-aN-XFP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="5分">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="UPq-Tt-FjJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3CN-OL-yHJ">
+                    <rect key="frame" x="451" y="0.0" width="75" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="BEm-m9-V8p"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="周线">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="o4Z-8l-eD0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6c-PJ-sRN">
+                    <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="APr-B9-ZgR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="分时">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZIc-68-Qau"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgH-Cf-xyE">
+                    <rect key="frame" x="300.66666666666669" y="0.0" width="75" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="7VU-Q5-1IR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                    <state key="normal" title="4小时">
+                        <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.29803921570000003" green="0.52549019610000003" blue="0.80392156859999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="24O-1Y-o7x"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3CN-OL-yHJ" firstAttribute="leading" secondItem="neu-cb-o6z" secondAttribute="trailing" id="1zd-TH-EAV"/>
+                <constraint firstItem="neu-cb-o6z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="2Ki-cy-CLC"/>
+                <constraint firstItem="3CN-OL-yHJ" firstAttribute="width" secondItem="B6c-PJ-sRN" secondAttribute="width" id="4Zb-VK-Wy8"/>
+                <constraint firstItem="u3v-9y-Yno" firstAttribute="width" secondItem="B6c-PJ-sRN" secondAttribute="width" id="6O4-r7-8Ea"/>
+                <constraint firstItem="aqc-d5-QwW" firstAttribute="centerX" secondItem="B6c-PJ-sRN" secondAttribute="centerX" id="8td-zS-rTK"/>
+                <constraint firstItem="B6c-PJ-sRN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="CUK-OI-ec7"/>
+                <constraint firstItem="IgH-Cf-xyE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="IKL-0A-vS0"/>
+                <constraint firstItem="B6c-PJ-sRN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="O61-SB-CwJ"/>
+                <constraint firstItem="C46-ZL-4vi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="P4H-u6-AHF"/>
+                <constraint firstItem="IgH-Cf-xyE" firstAttribute="width" secondItem="B6c-PJ-sRN" secondAttribute="width" id="R2I-Wb-HgR"/>
+                <constraint firstItem="ww9-gT-Q8N" firstAttribute="leading" secondItem="B6c-PJ-sRN" secondAttribute="trailing" id="TgE-8z-bDm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3CN-OL-yHJ" secondAttribute="trailing" id="Vbd-Bd-J2W"/>
+                <constraint firstItem="u3v-9y-Yno" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Wtp-4n-GWa"/>
+                <constraint firstItem="neu-cb-o6z" firstAttribute="leading" secondItem="IgH-Cf-xyE" secondAttribute="trailing" id="biW-Bf-E7K"/>
+                <constraint firstItem="3CN-OL-yHJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="h2h-T4-mnm"/>
+                <constraint firstItem="ww9-gT-Q8N" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="h2r-IF-q0C"/>
+                <constraint firstItem="IgH-Cf-xyE" firstAttribute="leading" secondItem="u3v-9y-Yno" secondAttribute="trailing" id="lYJ-Ny-hUF"/>
+                <constraint firstItem="C46-ZL-4vi" firstAttribute="width" secondItem="B6c-PJ-sRN" secondAttribute="width" id="mta-C2-vmh"/>
+                <constraint firstItem="u3v-9y-Yno" firstAttribute="leading" secondItem="C46-ZL-4vi" secondAttribute="trailing" id="njX-W1-QJE"/>
+                <constraint firstItem="ww9-gT-Q8N" firstAttribute="width" secondItem="B6c-PJ-sRN" secondAttribute="width" id="oe1-sj-CxP"/>
+                <constraint firstItem="C46-ZL-4vi" firstAttribute="leading" secondItem="ww9-gT-Q8N" secondAttribute="trailing" id="qVB-wC-hYl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aqc-d5-QwW" secondAttribute="bottom" id="xlP-og-a4v"/>
+                <constraint firstItem="neu-cb-o6z" firstAttribute="width" secondItem="B6c-PJ-sRN" secondAttribute="width" id="yJT-5Y-Jnv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="centerXConstraint" destination="8td-zS-rTK" id="t4K-km-azH"/>
+                <outlet property="period1dayButton" destination="neu-cb-o6z" id="BhG-nL-E3M"/>
+                <outlet property="period1hourButton" destination="u3v-9y-Yno" id="Yy1-AA-VoG"/>
+                <outlet property="period1weakButton" destination="3CN-OL-yHJ" id="PNH-Qc-o3n"/>
+                <outlet property="period30fenButton" destination="C46-ZL-4vi" id="Hp9-RI-Wbz"/>
+                <outlet property="period4hourButton" destination="IgH-Cf-xyE" id="XuB-Cu-Aud"/>
+                <outlet property="period5fenButton" destination="ww9-gT-Q8N" id="RWm-y3-hMs"/>
+                <outlet property="periodfenButton" destination="B6c-PJ-sRN" id="h2f-8y-6di"/>
+            </connections>
+            <point key="canvasLocation" x="225" y="-417"/>
+        </view>
+    </objects>
+</document>

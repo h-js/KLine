@@ -117,6 +117,7 @@ class KLineChartView: UIView {
     func initIndicators() {
        let dataLength : CGFloat = CGFloat(datas.count) * (ChartStyle.candleWidth * scaleX + ChartStyle.canldeMargin) - ChartStyle.canldeMargin
        if dataLength > self.frame.width {
+        //感觉没必要用if else 一样的效果
            maxScroll = dataLength - self.frame.width
        } else {
            maxScroll = -(self.frame.width - dataLength)

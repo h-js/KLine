@@ -21,16 +21,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.rgb(r: 8, 23, 35)
-//        let path =  Bundle.main.path(forResource: "kline", ofType: "json")!
-//        let data = try! Data(contentsOf: URL(fileURLWithPath: path))
-//        let dicts = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [[String:Any]]
-//
-//        let datas =  dicts.map { (dict) -> KLineModel in
-//            return KLineModel(dict: dict)
-//            }
-//        DataUtil.calculate(dataList: datas.reversed())
-        
-//        KLineStateManger.manager.datas = []
         HTTPTool.tool.getData(period: KLineStateManger.manager.period) { (datas) in
             DataUtil.calculate(dataList: datas)
             KLineStateManger.manager.datas = datas

@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E46BE8624191B860066DFC7 /* kline.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E46BE8324191B860066DFC7 /* kline.json */; };
+		6E46BE8724191B860066DFC7 /* depth.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E46BE8424191B860066DFC7 /* depth.json */; };
+		6E46BE8824191B860066DFC7 /* kmon.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E46BE8524191B860066DFC7 /* kmon.json */; };
+		6EAB4E1B241A61C200A1388E /* NSString+Rect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAB4E1A241A61C200A1388E /* NSString+Rect.m */; };
+		6EB302062418F8A70078A076 /* HTTPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB302052418F8A70078A076 /* HTTPTool.m */; };
+		6EB31D2E2417AAEB00FAF31B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D2D2417AAEB00FAF31B /* AppDelegate.m */; };
+		6EB31D312417AAEB00FAF31B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D302417AAEB00FAF31B /* SceneDelegate.m */; };
+		6EB31D342417AAEB00FAF31B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D332417AAEB00FAF31B /* ViewController.m */; };
+		6EB31D372417AAEB00FAF31B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB31D352417AAEB00FAF31B /* Main.storyboard */; };
+		6EB31D392417AAEC00FAF31B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EB31D382417AAEC00FAF31B /* Assets.xcassets */; };
+		6EB31D3C2417AAEC00FAF31B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB31D3A2417AAEC00FAF31B /* LaunchScreen.storyboard */; };
+		6EB31D3F2417AAEC00FAF31B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D3E2417AAEC00FAF31B /* main.m */; };
+		6EB31D4D2417ABB100FAF31B /* KLinePainterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D4C2417ABB100FAF31B /* KLinePainterView.m */; };
+		6EB31D502417ABC900FAF31B /* KLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D4F2417ABC900FAF31B /* KLineChartView.m */; };
+		6EB31D562417AC0F00FAF31B /* KLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D552417AC0F00FAF31B /* KLineModel.m */; };
+		6EB31D592417AC2600FAF31B /* KLineState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D582417AC2600FAF31B /* KLineState.m */; };
+		6EB31D5C2417AC4300FAF31B /* BaseChartRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D5B2417AC4300FAF31B /* BaseChartRenderer.m */; };
+		6EB31D5F2417AC5800FAF31B /* MainChartRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D5E2417AC5800FAF31B /* MainChartRenderer.m */; };
+		6EB31D622417AC6B00FAF31B /* VolChartRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D612417AC6B00FAF31B /* VolChartRenderer.m */; };
+		6EB31D652417AC8100FAF31B /* SecondaryChartRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D642417AC8100FAF31B /* SecondaryChartRenderer.m */; };
+		6EB31D682417AC9E00FAF31B /* DataUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D672417AC9E00FAF31B /* DataUtil.m */; };
+		6EB31D6B2417ACC300FAF31B /* KLineStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D6A2417ACC300FAF31B /* KLineStateManager.m */; };
+		6EB31D6E2417ACDB00FAF31B /* UIColor+RGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D6D2417ACDB00FAF31B /* UIColor+RGB.m */; };
+		6EB31D712417AD0D00FAF31B /* KLineInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D702417AD0D00FAF31B /* KLineInfoView.m */; };
+		6EB31D732417AD1800FAF31B /* KLineInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB31D722417AD1800FAF31B /* KLineInfoView.xib */; };
+		6EB31D762417AD3600FAF31B /* KLinePeriodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D752417AD3600FAF31B /* KLinePeriodView.m */; };
+		6EB31D782417AD4200FAF31B /* KLinePeriodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB31D772417AD4200FAF31B /* KLinePeriodView.xib */; };
+		6EB31D7B2417AD6300FAF31B /* KLineIndicatorsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB31D7A2417AD6300FAF31B /* KLineIndicatorsView.m */; };
+		6EB31D7D2417AD7000FAF31B /* KLineIndicatorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB31D7C2417AD7000FAF31B /* KLineIndicatorsView.xib */; };
+		6EB70D442417AD9D0090EE76 /* KLineVerticalIndicatorsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB70D432417AD9D0090EE76 /* KLineVerticalIndicatorsView.m */; };
+		6EB70D462417ADA90090EE76 /* KLineVerticalIndicatorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB70D452417ADA90090EE76 /* KLineVerticalIndicatorsView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6E46BE8324191B860066DFC7 /* kline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kline.json; sourceTree = "<group>"; };
+		6E46BE8424191B860066DFC7 /* depth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = depth.json; sourceTree = "<group>"; };
+		6E46BE8524191B860066DFC7 /* kmon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kmon.json; sourceTree = "<group>"; };
+		6EAB4E19241A61C200A1388E /* NSString+Rect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Rect.h"; sourceTree = "<group>"; };
+		6EAB4E1A241A61C200A1388E /* NSString+Rect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Rect.m"; sourceTree = "<group>"; };
+		6EB302042418F8A70078A076 /* HTTPTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPTool.h; sourceTree = "<group>"; };
+		6EB302052418F8A70078A076 /* HTTPTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPTool.m; sourceTree = "<group>"; };
+		6EB31D292417AAEB00FAF31B /* KLine-Chart-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KLine-Chart-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB31D2C2417AAEB00FAF31B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6EB31D2D2417AAEB00FAF31B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6EB31D2F2417AAEB00FAF31B /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		6EB31D302417AAEB00FAF31B /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		6EB31D322417AAEB00FAF31B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6EB31D332417AAEB00FAF31B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6EB31D362417AAEB00FAF31B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6EB31D382417AAEC00FAF31B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6EB31D3B2417AAEC00FAF31B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6EB31D3D2417AAEC00FAF31B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EB31D3E2417AAEC00FAF31B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6EB31D4B2417ABB100FAF31B /* KLinePainterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLinePainterView.h; sourceTree = "<group>"; };
+		6EB31D4C2417ABB100FAF31B /* KLinePainterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLinePainterView.m; sourceTree = "<group>"; };
+		6EB31D4E2417ABC900FAF31B /* KLineChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLineChartView.h; sourceTree = "<group>"; };
+		6EB31D4F2417ABC900FAF31B /* KLineChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLineChartView.m; sourceTree = "<group>"; };
+		6EB31D512417ABE900FAF31B /* ChartStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartStyle.h; sourceTree = "<group>"; };
+		6EB31D542417AC0F00FAF31B /* KLineModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLineModel.h; sourceTree = "<group>"; };
+		6EB31D552417AC0F00FAF31B /* KLineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLineModel.m; sourceTree = "<group>"; };
+		6EB31D572417AC2600FAF31B /* KLineState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLineState.h; sourceTree = "<group>"; };
+		6EB31D582417AC2600FAF31B /* KLineState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLineState.m; sourceTree = "<group>"; };
+		6EB31D5A2417AC4300FAF31B /* BaseChartRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseChartRenderer.h; sourceTree = "<group>"; };
+		6EB31D5B2417AC4300FAF31B /* BaseChartRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseChartRenderer.m; sourceTree = "<group>"; };
+		6EB31D5D2417AC5800FAF31B /* MainChartRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainChartRenderer.h; sourceTree = "<group>"; };
+		6EB31D5E2417AC5800FAF31B /* MainChartRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainChartRenderer.m; sourceTree = "<group>"; };
+		6EB31D602417AC6B00FAF31B /* VolChartRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VolChartRenderer.h; sourceTree = "<group>"; };
+		6EB31D612417AC6B00FAF31B /* VolChartRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VolChartRenderer.m; sourceTree = "<group>"; };
+		6EB31D632417AC8100FAF31B /* SecondaryChartRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondaryChartRenderer.h; sourceTree = "<group>"; };
+		6EB31D642417AC8100FAF31B /* SecondaryChartRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondaryChartRenderer.m; sourceTree = "<group>"; };
+		6EB31D662417AC9E00FAF31B /* DataUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataUtil.h; sourceTree = "<group>"; };
+		6EB31D672417AC9E00FAF31B /* DataUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataUtil.m; sourceTree = "<group>"; };
+		6EB31D692417ACC300FAF31B /* KLineStateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLineStateManager.h; sourceTree = "<group>"; };
+		6EB31D6A2417ACC300FAF31B /* KLineStateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLineStateManager.m; sourceTree = "<group>"; };
+		6EB31D6C2417ACDB00FAF31B /* UIColor+RGB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGB.h"; sourceTree = "<group>"; };
+		6EB31D6D2417ACDB00FAF31B /* UIColor+RGB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGB.m"; sourceTree = "<group>"; };
+		6EB31D6F2417AD0D00FAF31B /* KLineInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLineInfoView.h; sourceTree = "<group>"; };
+		6EB31D702417AD0D00FAF31B /* KLineInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLineInfoView.m; sourceTree = "<group>"; };
+		6EB31D722417AD1800FAF31B /* KLineInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KLineInfoView.xib; sourceTree = "<group>"; };
+		6EB31D742417AD3600FAF31B /* KLinePeriodView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLinePeriodView.h; sourceTree = "<group>"; };
+		6EB31D752417AD3600FAF31B /* KLinePeriodView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLinePeriodView.m; sourceTree = "<group>"; };
+		6EB31D772417AD4200FAF31B /* KLinePeriodView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KLinePeriodView.xib; sourceTree = "<group>"; };
+		6EB31D792417AD6300FAF31B /* KLineIndicatorsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLineIndicatorsView.h; sourceTree = "<group>"; };
+		6EB31D7A2417AD6300FAF31B /* KLineIndicatorsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLineIndicatorsView.m; sourceTree = "<group>"; };
+		6EB31D7C2417AD7000FAF31B /* KLineIndicatorsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KLineIndicatorsView.xib; sourceTree = "<group>"; };
+		6EB70D422417AD9D0090EE76 /* KLineVerticalIndicatorsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLineVerticalIndicatorsView.h; sourceTree = "<group>"; };
+		6EB70D432417AD9D0090EE76 /* KLineVerticalIndicatorsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLineVerticalIndicatorsView.m; sourceTree = "<group>"; };
+		6EB70D452417ADA90090EE76 /* KLineVerticalIndicatorsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KLineVerticalIndicatorsView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6EB31D262417AAEB00FAF31B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E46BE8224191B860066DFC7 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				6E46BE8324191B860066DFC7 /* kline.json */,
+				6E46BE8424191B860066DFC7 /* depth.json */,
+				6E46BE8524191B860066DFC7 /* kmon.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		6EB302032418F88A0078A076 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				6EB302042418F8A70078A076 /* HTTPTool.h */,
+				6EB302052418F8A70078A076 /* HTTPTool.m */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		6EB31D202417AAEB00FAF31B = {
+			isa = PBXGroup;
+			children = (
+				6EB31D2B2417AAEB00FAF31B /* KLine-Chart-OC */,
+				6EB31D2A2417AAEB00FAF31B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6EB31D2A2417AAEB00FAF31B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EB31D292417AAEB00FAF31B /* KLine-Chart-OC.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6EB31D2B2417AAEB00FAF31B /* KLine-Chart-OC */ = {
+			isa = PBXGroup;
+			children = (
+				6E46BE8224191B860066DFC7 /* Resource */,
+				6EB302032418F88A0078A076 /* NetWork */,
+				6EB31D452417AB3000FAF31B /* KLineChart */,
+				6EB31D2C2417AAEB00FAF31B /* AppDelegate.h */,
+				6EB31D2D2417AAEB00FAF31B /* AppDelegate.m */,
+				6EB31D2F2417AAEB00FAF31B /* SceneDelegate.h */,
+				6EB31D302417AAEB00FAF31B /* SceneDelegate.m */,
+				6EB31D322417AAEB00FAF31B /* ViewController.h */,
+				6EB31D332417AAEB00FAF31B /* ViewController.m */,
+				6EB31D352417AAEB00FAF31B /* Main.storyboard */,
+				6EB31D382417AAEC00FAF31B /* Assets.xcassets */,
+				6EB31D3A2417AAEC00FAF31B /* LaunchScreen.storyboard */,
+				6EB31D3D2417AAEC00FAF31B /* Info.plist */,
+				6EB31D3E2417AAEC00FAF31B /* main.m */,
+			);
+			path = "KLine-Chart-OC";
+			sourceTree = "<group>";
+		};
+		6EB31D452417AB3000FAF31B /* KLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				6EB31D4A2417AB8700FAF31B /* View */,
+				6EB31D492417AB7500FAF31B /* Util */,
+				6EB31D482417AB6700FAF31B /* Renderer */,
+				6EB31D472417AB5900FAF31B /* Model */,
+				6EB31D462417AB4F00FAF31B /* Style */,
+				6EB31D4B2417ABB100FAF31B /* KLinePainterView.h */,
+				6EB31D4C2417ABB100FAF31B /* KLinePainterView.m */,
+				6EB31D4E2417ABC900FAF31B /* KLineChartView.h */,
+				6EB31D4F2417ABC900FAF31B /* KLineChartView.m */,
+			);
+			path = KLineChart;
+			sourceTree = "<group>";
+		};
+		6EB31D462417AB4F00FAF31B /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				6EB31D512417ABE900FAF31B /* ChartStyle.h */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		6EB31D472417AB5900FAF31B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6EB31D542417AC0F00FAF31B /* KLineModel.h */,
+				6EB31D552417AC0F00FAF31B /* KLineModel.m */,
+				6EB31D572417AC2600FAF31B /* KLineState.h */,
+				6EB31D582417AC2600FAF31B /* KLineState.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6EB31D482417AB6700FAF31B /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				6EB31D5A2417AC4300FAF31B /* BaseChartRenderer.h */,
+				6EB31D5B2417AC4300FAF31B /* BaseChartRenderer.m */,
+				6EB31D5D2417AC5800FAF31B /* MainChartRenderer.h */,
+				6EB31D5E2417AC5800FAF31B /* MainChartRenderer.m */,
+				6EB31D602417AC6B00FAF31B /* VolChartRenderer.h */,
+				6EB31D612417AC6B00FAF31B /* VolChartRenderer.m */,
+				6EB31D632417AC8100FAF31B /* SecondaryChartRenderer.h */,
+				6EB31D642417AC8100FAF31B /* SecondaryChartRenderer.m */,
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
+		6EB31D492417AB7500FAF31B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6EB31D662417AC9E00FAF31B /* DataUtil.h */,
+				6EB31D672417AC9E00FAF31B /* DataUtil.m */,
+				6EB31D692417ACC300FAF31B /* KLineStateManager.h */,
+				6EB31D6A2417ACC300FAF31B /* KLineStateManager.m */,
+				6EB31D6C2417ACDB00FAF31B /* UIColor+RGB.h */,
+				6EB31D6D2417ACDB00FAF31B /* UIColor+RGB.m */,
+				6EAB4E19241A61C200A1388E /* NSString+Rect.h */,
+				6EAB4E1A241A61C200A1388E /* NSString+Rect.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		6EB31D4A2417AB8700FAF31B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6EB31D6F2417AD0D00FAF31B /* KLineInfoView.h */,
+				6EB31D702417AD0D00FAF31B /* KLineInfoView.m */,
+				6EB31D722417AD1800FAF31B /* KLineInfoView.xib */,
+				6EB31D742417AD3600FAF31B /* KLinePeriodView.h */,
+				6EB31D752417AD3600FAF31B /* KLinePeriodView.m */,
+				6EB31D772417AD4200FAF31B /* KLinePeriodView.xib */,
+				6EB31D792417AD6300FAF31B /* KLineIndicatorsView.h */,
+				6EB31D7A2417AD6300FAF31B /* KLineIndicatorsView.m */,
+				6EB31D7C2417AD7000FAF31B /* KLineIndicatorsView.xib */,
+				6EB70D422417AD9D0090EE76 /* KLineVerticalIndicatorsView.h */,
+				6EB70D432417AD9D0090EE76 /* KLineVerticalIndicatorsView.m */,
+				6EB70D452417ADA90090EE76 /* KLineVerticalIndicatorsView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6EB31D282417AAEB00FAF31B /* KLine-Chart-OC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EB31D422417AAEC00FAF31B /* Build configuration list for PBXNativeTarget "KLine-Chart-OC" */;
+			buildPhases = (
+				6EB31D252417AAEB00FAF31B /* Sources */,
+				6EB31D262417AAEB00FAF31B /* Frameworks */,
+				6EB31D272417AAEB00FAF31B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "KLine-Chart-OC";
+			productName = "KLine-Chart-OC";
+			productReference = 6EB31D292417AAEB00FAF31B /* KLine-Chart-OC.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6EB31D212417AAEB00FAF31B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = hjs;
+				TargetAttributes = {
+					6EB31D282417AAEB00FAF31B = {
+						CreatedOnToolsVersion = 11.3;
+					};
+				};
+			};
+			buildConfigurationList = 6EB31D242417AAEB00FAF31B /* Build configuration list for PBXProject "KLine-Chart-OC" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6EB31D202417AAEB00FAF31B;
+			productRefGroup = 6EB31D2A2417AAEB00FAF31B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6EB31D282417AAEB00FAF31B /* KLine-Chart-OC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6EB31D272417AAEB00FAF31B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EB31D782417AD4200FAF31B /* KLinePeriodView.xib in Resources */,
+				6EB31D732417AD1800FAF31B /* KLineInfoView.xib in Resources */,
+				6EB70D462417ADA90090EE76 /* KLineVerticalIndicatorsView.xib in Resources */,
+				6EB31D3C2417AAEC00FAF31B /* LaunchScreen.storyboard in Resources */,
+				6E46BE8724191B860066DFC7 /* depth.json in Resources */,
+				6EB31D392417AAEC00FAF31B /* Assets.xcassets in Resources */,
+				6E46BE8824191B860066DFC7 /* kmon.json in Resources */,
+				6E46BE8624191B860066DFC7 /* kline.json in Resources */,
+				6EB31D7D2417AD7000FAF31B /* KLineIndicatorsView.xib in Resources */,
+				6EB31D372417AAEB00FAF31B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6EB31D252417AAEB00FAF31B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EB31D4D2417ABB100FAF31B /* KLinePainterView.m in Sources */,
+				6EAB4E1B241A61C200A1388E /* NSString+Rect.m in Sources */,
+				6EB31D682417AC9E00FAF31B /* DataUtil.m in Sources */,
+				6EB31D342417AAEB00FAF31B /* ViewController.m in Sources */,
+				6EB31D5C2417AC4300FAF31B /* BaseChartRenderer.m in Sources */,
+				6EB31D2E2417AAEB00FAF31B /* AppDelegate.m in Sources */,
+				6EB31D562417AC0F00FAF31B /* KLineModel.m in Sources */,
+				6EB31D712417AD0D00FAF31B /* KLineInfoView.m in Sources */,
+				6EB31D3F2417AAEC00FAF31B /* main.m in Sources */,
+				6EB31D7B2417AD6300FAF31B /* KLineIndicatorsView.m in Sources */,
+				6EB31D5F2417AC5800FAF31B /* MainChartRenderer.m in Sources */,
+				6EB31D622417AC6B00FAF31B /* VolChartRenderer.m in Sources */,
+				6EB31D652417AC8100FAF31B /* SecondaryChartRenderer.m in Sources */,
+				6EB70D442417AD9D0090EE76 /* KLineVerticalIndicatorsView.m in Sources */,
+				6EB31D312417AAEB00FAF31B /* SceneDelegate.m in Sources */,
+				6EB31D6E2417ACDB00FAF31B /* UIColor+RGB.m in Sources */,
+				6EB302062418F8A70078A076 /* HTTPTool.m in Sources */,
+				6EB31D502417ABC900FAF31B /* KLineChartView.m in Sources */,
+				6EB31D592417AC2600FAF31B /* KLineState.m in Sources */,
+				6EB31D762417AD3600FAF31B /* KLinePeriodView.m in Sources */,
+				6EB31D6B2417ACC300FAF31B /* KLineStateManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6EB31D352417AAEB00FAF31B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EB31D362417AAEB00FAF31B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6EB31D3A2417AAEC00FAF31B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EB31D3B2417AAEC00FAF31B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6EB31D402417AAEC00FAF31B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6EB31D412417AAEC00FAF31B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6EB31D432417AAEC00FAF31B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "KLine-Chart-OC/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hjs.KLine-Chart-OC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6EB31D442417AAEC00FAF31B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "KLine-Chart-OC/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hjs.KLine-Chart-OC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6EB31D242417AAEB00FAF31B /* Build configuration list for PBXProject "KLine-Chart-OC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB31D402417AAEC00FAF31B /* Debug */,
+				6EB31D412417AAEC00FAF31B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EB31D422417AAEC00FAF31B /* Build configuration list for PBXNativeTarget "KLine-Chart-OC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB31D432417AAEC00FAF31B /* Debug */,
+				6EB31D442417AAEC00FAF31B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6EB31D212417AAEB00FAF31B /* Project object */;
+}

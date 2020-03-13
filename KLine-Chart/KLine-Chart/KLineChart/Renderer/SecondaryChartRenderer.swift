@@ -89,7 +89,7 @@ class SecondaryChartRenderer: BaseChartRenderer {
             topAttributeText.append(valueAttr)
         case .wr:
             let value  = String(format: "%.2f", curPoint.r)
-            let valueAttr = NSAttributedString(string: "WR(14):\(value)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.rsiColor])
+            let valueAttr = NSAttributedString(string: "WR(14):\(value)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.wrColor])
             topAttributeText.append(valueAttr)
         case .kdj:
             let valueAttr = NSAttributedString(string: "KDJ(14,1,3)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.yAxisTextColor])
@@ -142,22 +142,19 @@ class SecondaryChartRenderer: BaseChartRenderer {
             }
         }
         
-        if curPoint.macd > 0 {
-            context.setStrokeColor(ChartColors.upColor.cgColor)
-            context.setLineWidth(mMACDWidth)
-            context.move(to: CGPoint(x: curX, y: maxdY))
-            context.addLine(to: CGPoint(x: curX, y: zeroy))
-            context.drawPath(using: CGPathDrawingMode.stroke)
-        } else {
-            context.setStrokeColor(ChartColors.dnColor.cgColor)
-            context.setLineWidth(mMACDWidth)
-            context.move(to: CGPoint(x: curX, y: maxdY))
-            context.addLine(to: CGPoint(x: curX, y: zeroy))
-            context.drawPath(using: CGPathDrawingMode.stroke)
-        }
-        
-        
-        
+//        if curPoint.macd > 0 {
+//            context.setStrokeColor(ChartColors.upColor.cgColor)
+//            context.setLineWidth(mMACDWidth)
+//            context.move(to: CGPoint(x: curX, y: maxdY))
+//            context.addLine(to: CGPoint(x: curX, y: zeroy))
+//            context.drawPath(using: CGPathDrawingMode.stroke)
+//        } else {
+//            context.setStrokeColor(ChartColors.dnColor.cgColor)
+//            context.setLineWidth(mMACDWidth)
+//            context.move(to: CGPoint(x: curX, y: maxdY))
+//            context.addLine(to: CGPoint(x: curX, y: zeroy))
+//            context.drawPath(using: CGPathDrawingMode.stroke)
+//        }
     }
     
     
