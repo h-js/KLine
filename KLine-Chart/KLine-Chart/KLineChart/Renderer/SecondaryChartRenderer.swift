@@ -141,20 +141,6 @@ class SecondaryChartRenderer: BaseChartRenderer {
                  drawLine(context: context, lastValue: _lastPoint.dea, curValue: curPoint.dea, curX: curX, color: ChartColors.deaColor)
             }
         }
-        
-//        if curPoint.macd > 0 {
-//            context.setStrokeColor(ChartColors.upColor.cgColor)
-//            context.setLineWidth(mMACDWidth)
-//            context.move(to: CGPoint(x: curX, y: maxdY))
-//            context.addLine(to: CGPoint(x: curX, y: zeroy))
-//            context.drawPath(using: CGPathDrawingMode.stroke)
-//        } else {
-//            context.setStrokeColor(ChartColors.dnColor.cgColor)
-//            context.setLineWidth(mMACDWidth)
-//            context.move(to: CGPoint(x: curX, y: maxdY))
-//            context.addLine(to: CGPoint(x: curX, y: zeroy))
-//            context.drawPath(using: CGPathDrawingMode.stroke)
-//        }
     }
     
     
