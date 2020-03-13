@@ -426,8 +426,7 @@
         CGContextDrawPath(context, kCGPathFillStroke);
         [self.mainRenderer drawText:text atPoint:CGPointMake(self.frame.size.width - textWdith - 2, y - rect.size.height / 2) fontSize:ChartStyle_defaultTextSize textColor: [UIColor whiteColor]];
     } else {
-        
-        isLeft = true;
+        isLeft = false;
         CGContextMoveToPoint(context, 0, y - textHeight / 2);
         CGContextAddLineToPoint(context, 0, y + textHeight / 2);
         
@@ -464,6 +463,78 @@
     }
 }
 -(void)drawRealTimePrice:(CGContextRef)context {
+    KLineModel *point = self.datas.firstObject;
+    NSString *text = [NSString stringWithFormat:@"%.2f",point.close];
+    CGFloat fontSize = 10;
+    CGRect rect = [text getRectWithFontSize:fontSize];
+    CGFloat y = [self.mainRenderer getY:point.close];
+    if(point.close > self.mMainMaxValue) {
+        y = [self.mainRenderer getY:self.mMainMaxValue];
+    } else if (point.close < self.mMainMinValue) {
+        y = [self.mainRenderer getY:self.mMainMinValue];
+    }
+    if((-_scrollX - rect.size.width) > 0) {
+        CGContextSetStrokeColorWithColor(context, ChartColors_realTimeLongLineColor.CGColor);
+        CGContextSetLineWidth(context, 0.5);
+        CGFloat locations[] = {5,5};
+        CGContextSetLineDash(context, 0, locations, 2);
+        CGContextMoveToPoint(context,self.frame.size.width + _scrollX, y);
+        CGContextAddLineToPoint(context, self.frame.size.width, y);
+        CGContextDrawPath(context, kCGPathStroke);
+        CGContextAddRect(context, CGRectMake(self.frame.size.width - rect.size.width, y - rect.size.height / 2, rect.size.width, rect.size.height));
+        CGContextSetFillColorWithColor(context, ChartColors_bgColor.CGColor);
+        CGContextDrawPath(context, kCGPathFill);
+        [self.mainRenderer drawText:text atPoint:CGPointMake(self.frame.size.width - rect.size.width, y - rect.size.height / 2) fontSize:fontSize textColor:ChartColors_reightTextColor];
+        if(_isLine) {
+            CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+            CGContextAddArc(context, self.frame.size.width + _scrollX - _candleWidth / 2, y, 2, 0, M_PI_2, true);
+            CGContextDrawPath(context, kCGPathFill);
+        }
+    } else {
+      CGContextSetStrokeColorWithColor(context, ChartColors_realTimeLongLineColor.CGColor);
+       CGContextSetLineWidth(context, 0.5);
+       CGFloat locations[] = {5,5};
+       CGContextSetLineDash(context, 0, locations, 2);
+       CGContextMoveToPoint(context,0, y);
+       CGContextAddLineToPoint(context, self.frame.size.width, y);
+       CGContextDrawPath(context, kCGPathStroke);
+        
+        CGFloat r = 8;
+        CGFloat w = rect.size.width + 16;
+        CGContextSetLineWidth(context, 0.5);
+        CGFloat locations1[] = {};
+        CGContextSetLineDash(context, 0, locations1, 0);
+        CGContextSetFillColorWithColor(context, ChartColors_bgColor.CGColor);
+        CGContextMoveToPoint(context,self.frame.size.width * 0.8, y - r);
+        
+        CGFloat curX = self.frame.size.width * 0.8;
+        CGRect arcRect = CGRectMake(curX - w / 2, y - r, w, 2 * r);
+        CGFloat minX = CGRectGetMinX(arcRect);
+        CGFloat midX = CGRectGetMidX(arcRect);
+        CGFloat maxX = CGRectGetMaxX(arcRect);
+        
+        CGFloat minY = CGRectGetMinY(arcRect);
+        CGFloat midY = CGRectGetMidY(arcRect);
+        CGFloat maxY = CGRectGetMaxY(arcRect);
+        
+        CGContextMoveToPoint(context,minX, midY);
+        CGContextAddArcToPoint(context, minX, minY, midX, minY, r);
+        CGContextAddArcToPoint(context, maxX, minY, maxX, midY, r);
+        CGContextAddArcToPoint(context, maxX, maxY, midX, maxY, r);
+        CGContextAddArcToPoint(context, minX, maxY, minX, midY, r);
+        CGContextClosePath(context);
+        CGContextDrawPath(context, kCGPathFillStroke);
+        
+        CGFloat startX = CGRectGetMaxX(arcRect) - 4;
+        CGContextSetFillColorWithColor(context, ChartColors_reightTextColor.CGColor);
+        CGContextMoveToPoint(context,startX, y);
+        CGContextAddLineToPoint(context, startX - 3, y - 3);
+        CGContextAddLineToPoint(context, startX - 3, y + 3);
+        CGContextClosePath(context);
+        CGContextDrawPath(context, kCGPathFill);
+        [self.mainRenderer drawText:text atPoint:CGPointMake(curX - rect.size.width / 2 - 4, y - rect.size.height / 2) fontSize:fontSize textColor:ChartColors_reightTextColor];
+    }
+    
     
 }
 

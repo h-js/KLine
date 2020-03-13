@@ -140,6 +140,10 @@
 }
 
 -(void)dragKlineEvent:(UIPanGestureRecognizer *)gesture{
+    if(_displayLink) {
+        [_displayLink invalidate];
+        _displayLink = nil;
+    }
     switch (gesture.state) {
         case UIGestureRecognizerStateBegan:
         {
@@ -198,7 +202,7 @@
         case UIGestureRecognizerStateChanged:
         {
             _isScale = true;
-            self.scaleX = [self clamp:self.lastscaleX min:0.5 max:2];
+            self.scaleX = [self clamp:self.lastscaleX * gesture.scale min:0.5 max:2];
         }
         case UIGestureRecognizerStateEnded:
         {
@@ -235,6 +239,13 @@
     } else {
         return value;
     }
+}
+
+-(KLineInfoView *)infoView {
+    if(_infoView == nil) {
+        _infoView = [KLineInfoView lineInfoView];
+    }
+    return _infoView;
 }
 
 

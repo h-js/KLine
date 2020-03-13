@@ -24,7 +24,7 @@
 
 @implementation KLineInfoView
 
--(instancetype)lineInfoView {
++(instancetype)lineInfoView {
     KLineInfoView *view = [[NSBundle mainBundle] loadNibNamed:@"KLineInfoView" owner:self options:nil].lastObject;
     view.frame = CGRectMake(0, 0, 120, 145);
     return view;
