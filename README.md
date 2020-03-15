@@ -14,7 +14,7 @@
 ![项目结构图](https://upload-images.jianshu.io/upload_images/2208878-71716586f8eef4b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 # 项目演示
-![k线演示.gif](https://upload-images.jianshu.io/upload_images/2208878-3d1d2b9966b261fe.gif?imageMogr2/auto-orient/strip)
+![k线演示.gif](https://upload-images.jianshu.io/upload_images/2208878-3d1d2b9966b261fe.gif)
 
 # 链接
 [https://github.com/h-js/KLine](https://github.com/h-js/KLine)
