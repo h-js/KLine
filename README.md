@@ -14,7 +14,12 @@
 ![项目结构图](https://upload-images.jianshu.io/upload_images/2208878-71716586f8eef4b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 # 项目演示
-![k线演示.gif](https://upload-images.jianshu.io/upload_images/2208878-3d1d2b9966b261fe.gif)
+![image](https://upload-images.jianshu.io/upload_images/2208878-3d1d2b9966b261fe.gif)
+![image](https://github.com/h-js/KLine/blob/master/img/8D28EE470507F4E025648F5BB148D822.jpg)
+![image](https://github.com/h-js/KLine/blob/master/img/540CBCC7112039C72B9B21C34C8D988B.jpg)
+![image](https://github.com/h-js/KLine/blob/master/img/570B2CFCD330FCBA1F235066B03FCB9D.png)
+![image](https://github.com/h-js/KLine/blob/master/img/98B7414D87C8C17E60464AA7BEAF1858.png)
+
 
 # 链接
 [https://github.com/h-js/KLine](https://github.com/h-js/KLine)
