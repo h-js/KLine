@@ -310,6 +310,9 @@
    if(_seconderyRender != nil) {
        [_seconderyRender drawGrid:context gridRows:ChartStyle_gridRows gridColums:ChartStyle_gridColumns];
    }
+     CGContextSetLineWidth(context, 1);
+    CGContextAddRect(context, self.bounds);
+    CGContextDrawPath(context, kCGPathStroke);
 }
 -(void)drawChart:(CGContextRef)context {
     for (NSUInteger index = _startIndex; index <= _stopIndex; index++) {

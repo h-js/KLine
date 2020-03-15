@@ -69,7 +69,7 @@ static CGFloat dd = 11.0;
 static CGFloat ChartStyle_pointWidth = 11.0;
 
     //蜡烛之间的间距
-static CGFloat ChartStyle_canldeMargin =   3;
+static CGFloat ChartStyle_canldeMargin =  1.5;
 
     //蜡烛默认宽度
 static CGFloat ChartStyle_defaultcandleWidth =  8.5;

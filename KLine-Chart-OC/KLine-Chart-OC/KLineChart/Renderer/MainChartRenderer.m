@@ -52,6 +52,8 @@
          CGContextAddLineToPoint(context, CGRectGetMaxX(self.chartRect), index * rowSpace + ChartStyle_topPadding);
          CGContextDrawPath(context, kCGPathFillStroke);
      }
+    CGContextAddRect(context, self.chartRect);
+    CGContextDrawPath(context, kCGPathStroke);
 }
 
 - (void)drawChart:(CGContextRef)context lastPoit:(KLineModel *)lastPoint curPoint:(KLineModel *)curPoint curX:(CGFloat)curX {

@@ -229,6 +229,10 @@
         [_displayLink invalidate];
         _displayLink = nil;
     }
+    if(self.scrollX == self.minScroll) {
+        [_displayLink invalidate];
+        _displayLink = nil;
+    }
 }
 
 

@@ -41,6 +41,8 @@
         CGContextAddLineToPoint(context, index * columsSpace, CGRectGetMaxY(self.chartRect));
         CGContextDrawPath(context, kCGPathFillStroke);
     }
+    CGContextAddRect(context, self.chartRect);
+    CGContextDrawPath(context, kCGPathStroke);
 }
 
 

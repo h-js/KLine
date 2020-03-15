@@ -21,6 +21,9 @@
         CGContextAddLineToPoint(context, index * columsSpace, CGRectGetMaxY(self.chartRect));
         CGContextDrawPath(context, kCGPathFillStroke);
     }
+    CGContextAddRect(context, self.chartRect);
+    CGContextDrawPath(context, kCGPathStroke);
+    
 }
 - (void)drawChart:(CGContextRef)context lastPoit:(KLineModel *)lastPoint curPoint:(KLineModel *)curPoint curX:(CGFloat)curX {
     [self drawVolChat:context curPoint:curPoint curX:curX];
