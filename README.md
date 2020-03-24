@@ -23,3 +23,6 @@
 
 # 链接
 [https://github.com/h-js/KLine](https://github.com/h-js/KLine)
+
+# 最后
+如果你喜欢这个项目，欢迎给我一个star。我将持续更新这个项目 :)
