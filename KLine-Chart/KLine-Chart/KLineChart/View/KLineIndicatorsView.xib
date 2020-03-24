@@ -83,10 +83,25 @@
                                 <action selector="mainhideClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="25S-48-kIV"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcN-mv-8M7">
+                            <rect key="frame" x="314" y="5.5" width="58" height="29"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                            <state key="normal" title="AddData">
+                                <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="addDataClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="W5E-lV-CLe"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="XjO-13-ZxG" firstAttribute="leading" secondItem="9xi-RQ-nF3" secondAttribute="trailing" constant="10" id="0um-a1-6fo"/>
+                        <constraint firstItem="oPd-X1-MA3" firstAttribute="leading" secondItem="WcN-mv-8M7" secondAttribute="trailing" constant="10" id="22N-Pt-Z4z"/>
                         <constraint firstItem="JmF-eK-EsR" firstAttribute="leading" secondItem="XjO-13-ZxG" secondAttribute="trailing" constant="10" id="Db3-wY-0wu"/>
                         <constraint firstItem="9xi-RQ-nF3" firstAttribute="centerY" secondItem="ayb-wA-fmx" secondAttribute="centerY" id="MiA-GC-tXT"/>
                         <constraint firstAttribute="trailing" secondItem="oPd-X1-MA3" secondAttribute="trailing" constant="10" id="NrY-Kr-XWd"/>
@@ -95,6 +110,7 @@
                         <constraint firstAttribute="height" constant="40" id="gzU-Vx-Ukn"/>
                         <constraint firstItem="gg7-uR-IFI" firstAttribute="centerY" secondItem="9xi-RQ-nF3" secondAttribute="centerY" id="kty-LC-1hL"/>
                         <constraint firstItem="JmF-eK-EsR" firstAttribute="centerY" secondItem="9xi-RQ-nF3" secondAttribute="centerY" id="lf6-VS-THk"/>
+                        <constraint firstItem="WcN-mv-8M7" firstAttribute="centerY" secondItem="oPd-X1-MA3" secondAttribute="centerY" id="pTt-vm-2Af"/>
                         <constraint firstItem="gg7-uR-IFI" firstAttribute="leading" secondItem="JmF-eK-EsR" secondAttribute="trailing" constant="10" id="vRB-HV-Zl2"/>
                         <constraint firstItem="XjO-13-ZxG" firstAttribute="centerY" secondItem="ayb-wA-fmx" secondAttribute="centerY" id="vUp-lG-LgU"/>
                     </constraints>

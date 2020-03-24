@@ -107,4 +107,28 @@ class KLineIndicatorsView: UIView {
         }
     }
     
+    @IBAction func addDataClick(_ sender: UIButton) {
+        if let model = KLineStateManger.manager.datas.first {
+               //拷贝一个对象，修改数据
+               let kLineEntity = KLineModel()
+               kLineEntity.id = model.id + 60 * 60 * 24;
+               kLineEntity.open = model.close;
+               let rand = Int(arc4random() % 200)
+               kLineEntity.close = model.close + CGFloat(rand) * CGFloat((rand % 3) - 1)
+               kLineEntity.high = max(kLineEntity.open, kLineEntity.close) + 10
+               kLineEntity.low = min(kLineEntity.open, kLineEntity.close) - 10
+               
+               kLineEntity.amount = model.amount + CGFloat(rand) * CGFloat((rand % 3) - 1)
+               kLineEntity.count = model.count + Int64(rand) * Int64((rand % 3) - 1)
+               kLineEntity.vol = model.vol +  CGFloat(rand) * CGFloat((rand % 3) - 1)
+               
+               
+               var models = KLineStateManger.manager.datas
+               DataUtil.addLastData(dataList: models, data: kLineEntity)
+               models.insert(kLineEntity, at: 0)
+               KLineStateManger.manager.datas = models
+        }
+    }
+    
+    
 }

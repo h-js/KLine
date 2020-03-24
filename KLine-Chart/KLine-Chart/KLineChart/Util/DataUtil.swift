@@ -20,6 +20,18 @@ class DataUtil {
       calcWR(_dataList);
     }
     
+    //增量更新时计算最后一个数据
+    static func addLastData(dataList: [KLineModel], data: KLineModel) {
+         var _dataList = dataList.reversed() as [KLineModel]
+        _dataList.append(data)
+        calcMA(_dataList, isLast: true);
+        calcBOLL(_dataList, isLast: true);
+        calcVolumeMA(_dataList, isLast: true);
+        calcKDJ(_dataList, isLast: true);
+        calcMACD(_dataList, isLast: true);
+        calcRSI(_dataList, isLast: true);
+        calcWR(_dataList, isLast: true);
+     }
     
     
     static func calcMA(_ dataList: [KLineModel],isLast: Bool = false) {
