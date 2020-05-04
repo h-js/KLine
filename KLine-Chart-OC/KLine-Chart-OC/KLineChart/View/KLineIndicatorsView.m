@@ -9,6 +9,7 @@
 #import "KLineIndicatorsView.h"
 #import "KLineStateManager.h"
 #import "ChartStyle.h"
+#import "DataUtil.h"
 
 @interface KLineIndicatorsView()
 
@@ -128,6 +129,31 @@
         default:
             break;
     }
+}
+
+- (IBAction)addDataClick:(UIButton *)sender {
+    KLineModel *model = [KLineStateManager manager].datas.firstObject;
+    if(model != nil) {
+        KLineModel *kLineEntity = [[KLineModel alloc] init];
+        kLineEntity.id = model.id + 60 * 60 * 24;
+        kLineEntity.open = model.close;
+        int rand = (int)(arc4random() % 200);
+        kLineEntity.close = model.close + (CGFloat)(rand) * (CGFloat)((rand % 3) - 1);
+        kLineEntity.high = MAX(kLineEntity.open, kLineEntity.close) + 10;
+        kLineEntity.low = MIN(kLineEntity.open, kLineEntity.close) - 10;
+    
+        kLineEntity.amount = model.amount + (CGFloat)(rand) * (CGFloat)((rand % 3) - 1);
+        kLineEntity.count = model.count + (CGFloat)(rand) * (CGFloat)((rand % 3) - 1);
+        kLineEntity.vol = model.vol +  (CGFloat)(rand) * (CGFloat)((rand % 3) - 1);
+        
+        NSArray  *models = [KLineStateManager manager].datas;
+        [DataUtil addLastData:models data:model];
+        
+        NSMutableArray *newDatas = [NSMutableArray arrayWithArray:models];
+        [newDatas insertObject:kLineEntity atIndex:0];
+        [KLineStateManager manager].datas = [newDatas copy];
+    }
+    
 }
 
 

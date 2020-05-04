@@ -23,6 +23,19 @@
     [self calcWR:dataList isLast:false];
 }
 
++(void)addLastData:(NSArray<KLineModel *> *)dataList data:(KLineModel *)model {
+    if(dataList == nil) { return; }
+    NSMutableArray *_dataList = [[NSMutableArray alloc] initWithArray:[[dataList reverseObjectEnumerator] allObjects]];
+    [_dataList addObject:model];
+    [self calcMA:_dataList isLast:true];
+    [self calcBOLL:_dataList isLast:true];
+    [self calcVolumeMA:_dataList isLast:true];
+    [self calcKDJ:_dataList isLast:true];
+    [self calcMACD:_dataList isLast:true];
+    [self calcRSI:_dataList isLast:true];
+    [self calcWR:_dataList isLast:true];
+}
+
 +(void)calcMA:(NSArray<KLineModel *> *)dataList isLast:(BOOL)isLast {
     double ma5 = 0;
     double ma10 = 0;

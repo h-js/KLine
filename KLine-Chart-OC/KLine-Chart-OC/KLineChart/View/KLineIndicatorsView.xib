@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -81,17 +82,33 @@
                                 <action selector="mainhideClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="M2W-G5-ZsQ"/>
                             </connections>
                         </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZR-fB-vSG">
+                            <rect key="frame" x="246" y="5.5" width="58" height="29"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                            <state key="normal" title="AddData">
+                                <color key="titleColor" red="0.37647058820000001" green="0.45098039220000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="addDataClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="mge-uU-74B"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="quO-tO-A3N" firstAttribute="centerY" secondItem="y81-9z-D6s" secondAttribute="centerY" id="0w5-AL-i0t"/>
                         <constraint firstAttribute="height" constant="40" id="2Pe-HT-pzy"/>
+                        <constraint firstItem="TMk-5L-hd7" firstAttribute="leading" secondItem="wZR-fB-vSG" secondAttribute="trailing" constant="10" id="QSI-Fb-ksV"/>
                         <constraint firstItem="y81-9z-D6s" firstAttribute="centerY" secondItem="6zC-yq-wfh" secondAttribute="centerY" id="Qq4-IO-7a4"/>
                         <constraint firstItem="8aH-kZ-j8w" firstAttribute="centerY" secondItem="y81-9z-D6s" secondAttribute="centerY" id="XTM-h6-Fdt"/>
                         <constraint firstItem="CKU-1H-SNb" firstAttribute="leading" secondItem="y81-9z-D6s" secondAttribute="trailing" constant="10" id="YSg-ef-BTU"/>
                         <constraint firstAttribute="trailing" secondItem="TMk-5L-hd7" secondAttribute="trailing" constant="10" id="Z2z-Eg-2mm"/>
                         <constraint firstItem="quO-tO-A3N" firstAttribute="leading" secondItem="CKU-1H-SNb" secondAttribute="trailing" constant="10" id="Znj-XI-E8T"/>
                         <constraint firstItem="8aH-kZ-j8w" firstAttribute="leading" secondItem="quO-tO-A3N" secondAttribute="trailing" constant="10" id="akT-a5-LQn"/>
+                        <constraint firstItem="wZR-fB-vSG" firstAttribute="centerY" secondItem="6zC-yq-wfh" secondAttribute="centerY" id="eod-Qd-9JV"/>
                         <constraint firstItem="CKU-1H-SNb" firstAttribute="centerY" secondItem="6zC-yq-wfh" secondAttribute="centerY" id="fZf-nO-bsR"/>
                         <constraint firstItem="y81-9z-D6s" firstAttribute="leading" secondItem="6zC-yq-wfh" secondAttribute="leading" constant="10" id="oiR-Li-m3k"/>
                         <constraint firstItem="TMk-5L-hd7" firstAttribute="centerY" secondItem="6zC-yq-wfh" secondAttribute="centerY" id="shv-lf-WMb"/>
