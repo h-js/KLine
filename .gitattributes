@@ -1,0 +1,3 @@
+*.mm linguist-language=Objectv-C
+*.swift linguist-language=Swift
+*.dart linguist-language=Dart
