@@ -14,12 +14,11 @@
 ![项目结构图](https://upload-images.jianshu.io/upload_images/2208878-71716586f8eef4b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 # 项目演示
-![image](https://github.com/h-js/KLine/blob/master/img/k线演示.gif)
-![image](https://github.com/h-js/KLine/blob/master/img/8D28EE470507F4E025648F5BB148D822.jpg)
-![image](https://github.com/h-js/KLine/blob/master/img/540CBCC7112039C72B9B21C34C8D988B.jpg)
-![image](https://github.com/h-js/KLine/blob/master/img/570B2CFCD330FCBA1F235066B03FCB9D.png)
-![image](https://github.com/h-js/KLine/blob/master/img/98B7414D87C8C17E60464AA7BEAF1858.png)
-
+![k线演示](https://upload-images.jianshu.io/upload_images/2208878-eada5c4a4a6b02c6.GIF?imageMogr2/auto-orient/strip)
+![k线演示](https://upload-images.jianshu.io/upload_images/2208878-f9d5a697e08c9a77.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![k线演示](https://upload-images.jianshu.io/upload_images/2208878-4b88024f391bafca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![k线演示](https://upload-images.jianshu.io/upload_images/2208878-cba8335ba60285a0.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![k线演示](https://upload-images.jianshu.io/upload_images/2208878-97cc8ff7f4a2a699.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 # 链接
 [https://github.com/h-js/KLine](https://github.com/h-js/KLine)

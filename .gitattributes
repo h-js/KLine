@@ -1,0 +1,3 @@
+*.m linguist-language=Objective-C
+*.swift linguist-language=Swift
+*.dart linguist-language=Dart
