@@ -15,19 +15,21 @@ class HttpTool {
     Options option = new Options(method: "get");
     option.responseType = ResponseType.json;
     Response response;
-    try {
-      response = await dio.request<String>(url,data: parmas,options: option);
-    } on DioError catch(e){
-      print(e.message);
-      var result = await rootBundle.loadString('assets/kline.json');
-
-      return json.decode(result);
-    }
-    if(response.data is DioError) {
-      return null;
-    }
-//    print(response.data);
-    return json.decode(response.data);
+    var result = await rootBundle.loadString('assets/kline.json');
+    return json.decode(result);
+//    try {
+//      response = await dio.request<String>(url,data: parmas,options: option);
+//    } on DioError catch(e){
+//      print(e.message);
+//      var result = await rootBundle.loadString('assets/kline.json');
+//
+//      return json.decode(result);
+//    }
+//    if(response.data is DioError) {
+//      return null;
+//    }
+////    print(response.data);
+//    return json.decode(response.data);
   }
 
 }
