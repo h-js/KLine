@@ -8,8 +8,8 @@
 
 import Foundation
 enum KLineDirection: Int {
-    case vertical   //竖屏布局
-    case horizontal //横屏布局
+    case vertical // 竖屏布局
+    case horizontal // 横屏布局
 }
 
 enum MainState: Int {

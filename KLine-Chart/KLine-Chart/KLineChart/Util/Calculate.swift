@@ -8,7 +8,7 @@
 
 import UIKit
 
-func clamp<T : Comparable>(value: T,min: T, max: T) -> T {
+func clamp<T: Comparable>(value: T, min: T, max: T) -> T {
     if value < min {
         return min
     } else if value > max {
@@ -19,7 +19,7 @@ func clamp<T : Comparable>(value: T,min: T, max: T) -> T {
 }
 
 func calculateTextRect(text: String, fontSize: CGFloat) -> CGRect {
-     let rect = text.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)], context: nil)
+    let rect = text.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)], context: nil)
     return rect
 }
 
@@ -31,13 +31,12 @@ func calculateDateText(timestamp: Int64, dateFormat: String) -> String {
 }
 
 func volFormat(value: CGFloat) -> String {
-    if (value > 10000 && value < 999999) {
-         let d = value / 1000;
-         return "\(String(format: "%.2f", d))K"
-       } else if (value > 1000000) {
-         let d = value / 1000000;
-         return "\(String(format: "%.2f", d))M"
-       }
-       return String(format: "%.2f", value)
-    
+    if value > 10000, value < 999_999 {
+        let d = value / 1000
+        return "\(String(format: "%.2f", d))K"
+    } else if value > 1_000_000 {
+        let d = value / 1_000_000
+        return "\(String(format: "%.2f", d))M"
+    }
+    return String(format: "%.2f", value)
 }

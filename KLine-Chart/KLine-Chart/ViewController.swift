@@ -9,72 +9,65 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     let klineCharView = KLineChartView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width - 0, height: 450))
-    
+
     let klinePeriodView = KLinePeriodView.linePeriodView()
-    
+
     let lineIndicatorsView = KLineIndicatorsView.indicatorsView()
-    
+
     let verticalIndicatorsView = KLineVerticalIndicatorsView.verticalIndicatorsView()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.rgb(r: 8, 23, 35)
-        HTTPTool.tool.getData(period: KLineStateManger.manager.period) { (datas) in
+        view.backgroundColor = UIColor.rgb(r: 8, 23, 35)
+        HTTPTool.tool.getData(period: KLineStateManger.manager.period) { datas in
             DataUtil.calculate(dataList: datas)
             KLineStateManger.manager.datas = datas
-            
         }
-        
-        
-        
-        self.view.addSubview(klineCharView)
-        self.view.addSubview(klinePeriodView)
-        self.view.addSubview(lineIndicatorsView)
-        self.view.addSubview(verticalIndicatorsView)
 
-        self.verticalLayout()
-        
+        view.addSubview(klineCharView)
+        view.addSubview(klinePeriodView)
+        view.addSubview(lineIndicatorsView)
+        view.addSubview(verticalIndicatorsView)
+
+        verticalLayout()
+
         KLineStateManger.manager.klineChart = klineCharView
         NotificationCenter.default.addObserver(self, selector: #selector(chageRotate(noti:)), name: UIApplication.didChangeStatusBarFrameNotification, object: nil)
-        
     }
-    
-    @objc func chageRotate(noti: Notification) {
-        if UIDevice.current.orientation == UIDeviceOrientation.portrait ||  UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
+
+    @objc func chageRotate(noti _: Notification) {
+        if UIDevice.current.orientation == UIDeviceOrientation.portrait || UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
             print("竖直屏幕")
-            self.verticalLayout()
+            verticalLayout()
         } else {
             //
             print("横屏幕")
-            self.horizontalLayout()
+            horizontalLayout()
         }
     }
+
     func verticalLayout() {
         var topMargin: CGFloat = 50
-           if #available(iOS 11.0, *) {
-               topMargin = self.view.safeAreaInsets.top + topMargin
-           }
-        self.lineIndicatorsView.correctState()
-        self.klineCharView.direction = .vertical
-        self.klinePeriodView.frame = CGRect(x: 0, y: topMargin, width: self.view.frame.width, height: 30)
-        self.klineCharView.frame = CGRect(x: 0, y: self.klinePeriodView.frame.maxY, width: self.view.frame.width, height: 450)
-        self.lineIndicatorsView.frame = CGRect(x: 0, y: klineCharView.frame.maxY + 20, width: klineCharView.frame.width, height: 80)
+        if #available(iOS 11.0, *) {
+            topMargin = self.view.safeAreaInsets.top + topMargin
+        }
+        lineIndicatorsView.correctState()
+        klineCharView.direction = .vertical
+        klinePeriodView.frame = CGRect(x: 0, y: topMargin, width: view.frame.width, height: 30)
+        klineCharView.frame = CGRect(x: 0, y: klinePeriodView.frame.maxY, width: view.frame.width, height: 450)
+        lineIndicatorsView.frame = CGRect(x: 0, y: klineCharView.frame.maxY + 20, width: klineCharView.frame.width, height: 80)
     }
-    
+
     func horizontalLayout() {
-         self.klineCharView.direction = .horizontal
-         var rightMargin: CGFloat = 0
-          if #available(iOS 11.0, *) {
-              rightMargin = self.view.safeAreaInsets.right + rightMargin
-          }
-        self.verticalIndicatorsView.correctState()
-        self.verticalIndicatorsView.frame = CGRect(x: self.view.frame.width - 50 - rightMargin, y: 0, width: 50, height: self.view.frame.height)
-        self.klineCharView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 50 - rightMargin, height: self.view.frame.height - 30)
-        self.klinePeriodView.frame = CGRect(x: 0, y: self.view.frame.height - 30, width: self.klineCharView.frame.width, height: 30)
+        klineCharView.direction = .horizontal
+        var rightMargin: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            rightMargin = self.view.safeAreaInsets.right + rightMargin
+        }
+        verticalIndicatorsView.correctState()
+        verticalIndicatorsView.frame = CGRect(x: view.frame.width - 50 - rightMargin, y: 0, width: 50, height: view.frame.height)
+        klineCharView.frame = CGRect(x: 0, y: 0, width: view.frame.width - 50 - rightMargin, height: view.frame.height - 30)
+        klinePeriodView.frame = CGRect(x: 0, y: view.frame.height - 30, width: klineCharView.frame.width, height: 30)
     }
-
-    
 }
-

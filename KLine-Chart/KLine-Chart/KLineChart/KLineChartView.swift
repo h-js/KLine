@@ -9,28 +9,30 @@
 import UIKit
 
 class KLineChartView: UIView {
-    
     var painterView: KLinePainterView?
     var isLine = false {
         didSet {
             painterView?.isLine = isLine
         }
     }
+
     var isScale = false
     var isDrag = false
     var isLongPress = false {
         didSet {
             painterView?.isLongPress = isLongPress
             if !isLongPress {
-                self.infoView.removeFromSuperview()
+                infoView.removeFromSuperview()
             }
         }
     }
-    var scrollX: CGFloat = 0.0  {
-        didSet{
+
+    var scrollX: CGFloat = 0.0 {
+        didSet {
             painterView?.scrollX = scrollX
         }
     }
+
     var maxScroll: CGFloat = 0.0
     var minScroll: CGFloat = 0.0
     var scaleX: CGFloat = 1.0 {
@@ -39,6 +41,7 @@ class KLineChartView: UIView {
             painterView?.scaleX = scaleX
         }
     }
+
     var selectX: CGFloat = 0.0
     var datas: [KLineModel] = [] {
         didSet {
@@ -46,56 +49,60 @@ class KLineChartView: UIView {
             painterView?.datas = datas
         }
     }
+
     var mainState: MainState = .none {
         didSet {
             painterView?.mainState = mainState
         }
     }
+
     var secondaryState: SecondaryState = .none {
         didSet {
-           painterView?.secondaryState = secondaryState
+            painterView?.secondaryState = secondaryState
         }
     }
-    
+
     var lastScrollX: CGFloat = 0.0
     var dragbeginX: CGFloat = 0
-    
+
     var lastscaleX: CGFloat = 1
-    
+
     var longPressX: CGFloat = 0 {
         didSet {
             painterView?.longPressX = longPressX
         }
     }
+
     var direction: KLineDirection = .vertical {
         didSet {
             painterView?.direction = direction
         }
     }
-    
+
     var speedX: CGFloat = 0
-    
+
     var displayLink: CADisplayLink?
-    
+
     lazy var infoView: KLineInfoView = {
         let view = KLineInfoView.lineInfoView()
         return view
     }()
+
     override var frame: CGRect {
         didSet {
             self.painterView?.frame = self.bounds
             initIndicators()
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        scrollX = -self.frame.width / 5 + ChartStyle.candleWidth / 2;
+        scrollX = -self.frame.width / 5 + ChartStyle.candleWidth / 2
         initIndicators()
-        painterView = KLinePainterView.init(frame: self.bounds, datas: self.datas, scrollX: self.scrollX, isLine: self.isLine, scaleX: self.scaleX, isLongPress: self.isLongPress, mainState: self.mainState, secondaryState: self.secondaryState)
+        painterView = KLinePainterView(frame: bounds, datas: datas, scrollX: scrollX, isLine: isLine, scaleX: scaleX, isLongPress: isLongPress, mainState: mainState, secondaryState: secondaryState)
         addSubview(painterView!)
         painterView?.showInfoBlock = {
-            [weak self]  (point,isleft) in
+            [weak self] point, isleft in
             guard let strongSelf = self else { return }
             strongSelf.infoView.model = point
             strongSelf.addSubview(strongSelf.infoView)
@@ -106,49 +113,49 @@ class KLineChartView: UIView {
                 strongSelf.infoView.frame = CGRect(x: strongSelf.frame.width - strongSelf.infoView.frame.width - padding, y: 30, width: strongSelf.infoView.frame.width, height: strongSelf.infoView.frame.height)
             }
         }
-        let panGesture = UIPanGestureRecognizer(target: self, action:#selector(dragKlineEvent(gesture:)))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragKlineEvent(gesture:)))
         painterView?.addGestureRecognizer(panGesture)
         let longPressGreture = UILongPressGestureRecognizer(target: self, action: #selector(longPressKlineEvent(gesture:)))
         painterView?.addGestureRecognizer(longPressGreture)
         let pinGesture = UIPinchGestureRecognizer(target: self, action: #selector(secalXEvent(gesture:)))
         painterView?.addGestureRecognizer(pinGesture)
     }
-    
+
     func initIndicators() {
-       let dataLength : CGFloat = CGFloat(datas.count) * (ChartStyle.candleWidth * scaleX + ChartStyle.canldeMargin) - ChartStyle.canldeMargin
-       if dataLength > self.frame.width {
-        //感觉没必要用if else 一样的效果
-           maxScroll = dataLength - self.frame.width
-       } else {
-           maxScroll = -(self.frame.width - dataLength)
-       }
-       let dataScroll = self.frame.width - dataLength
-       let normalminScroll = -self.frame.width / 5 + (ChartStyle.candleWidth * scaleX) / 2
-       minScroll = min(normalminScroll, -dataScroll)
-       scrollX = clamp(value: scrollX, min: minScroll, max: maxScroll)
-       lastScrollX = scrollX
-       print(scrollX)
+        let dataLength: CGFloat = CGFloat(datas.count) * (ChartStyle.candleWidth * scaleX + ChartStyle.canldeMargin) - ChartStyle.canldeMargin
+        if dataLength > frame.width {
+            // 感觉没必要用if else 一样的效果
+            maxScroll = dataLength - frame.width
+        } else {
+            maxScroll = -(frame.width - dataLength)
+        }
+        let dataScroll = frame.width - dataLength
+        let normalminScroll = -frame.width / 5 + (ChartStyle.candleWidth * scaleX) / 2
+        minScroll = min(normalminScroll, -dataScroll)
+        scrollX = clamp(value: scrollX, min: minScroll, max: maxScroll)
+        lastScrollX = scrollX
+        print(scrollX)
     }
-    
-    //拖动k线处理事件
+
+    // 拖动k线处理事件
     @objc func dragKlineEvent(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .began:
-             let point = gesture.location(in: self.painterView)
-             dragbeginX = point.x
+            let point = gesture.location(in: painterView)
+            dragbeginX = point.x
             print("dragKlineEvent began")
             isDrag = true
         case .changed:
-           let point = gesture.location(in: self.painterView)
-           let dragX = point.x - dragbeginX
-           scrollX = clamp(value: self.lastScrollX + dragX, min: minScroll, max: maxScroll)
-           print(scrollX)
+            let point = gesture.location(in: painterView)
+            let dragX = point.x - dragbeginX
+            scrollX = clamp(value: lastScrollX + dragX, min: minScroll, max: maxScroll)
+            print(scrollX)
         case .ended:
             let speed = gesture.velocity(in: gesture.view)
-            self.speedX = speed.x
+            speedX = speed.x
             print("speed=\(speed)")
             isDrag = false
-            self.lastScrollX = self.scrollX
+            lastScrollX = scrollX
             if speed.x != 0 {
                 displayLink = CADisplayLink(target: self, selector: #selector(refreshEvent))
                 displayLink?.add(to: RunLoop.current, forMode: RunLoop.Mode.common)
@@ -157,62 +164,60 @@ class KLineChartView: UIView {
             print("拖动k线出现\(gesture.state)事件")
         }
     }
-    //长按手势处理
+
+    // 长按手势处理
     @objc func longPressKlineEvent(gesture: UILongPressGestureRecognizer) {
         print("longPressKlineEvent")
         switch gesture.state {
         case .began:
-             let point = gesture.location(in: self.painterView)
-             longPressX = point.x
-             isLongPress = true
+            let point = gesture.location(in: painterView)
+            longPressX = point.x
+            isLongPress = true
         case .changed:
-            let point = gesture.location(in: self.painterView)
+            let point = gesture.location(in: painterView)
             longPressX = point.x
             isLongPress = true
         case .ended:
             isLongPress = false
         default:
-             print("长按k线出现\(gesture.state)事件")
+            print("长按k线出现\(gesture.state)事件")
         }
     }
-    
+
     @objc func secalXEvent(gesture: UIPinchGestureRecognizer) {
         print("longPressKlineEvent")
-           switch gesture.state {
-           case .began:
-               isScale = true
-           case .changed:
+        switch gesture.state {
+        case .began:
+            isScale = true
+        case .changed:
             isScale = true
             print(gesture.scale)
-            scaleX = clamp(value: self.lastscaleX * gesture.scale, min: 0.5, max: 2)
-           case .ended:
-                isScale = false
-                self.lastscaleX = scaleX
-           default:
-                print("长按k线出现\(gesture.state)事件")
-           }
+            scaleX = clamp(value: lastscaleX * gesture.scale, min: 0.5, max: 2)
+        case .ended:
+            isScale = false
+            lastscaleX = scaleX
+        default:
+            print("长按k线出现\(gesture.state)事件")
+        }
     }
-    
-    @objc func refreshEvent(_ displaylink: CADisplayLink) {
+
+    @objc func refreshEvent(_: CADisplayLink) {
         let space: CGFloat = 100
-        if self.speedX < 0 {
-            self.speedX = min(self.speedX + space, 0)
-            self.scrollX = clamp(value: self.scrollX - 5, min: minScroll, max: maxScroll)
-            self.lastScrollX = self.scrollX
-        } else if self.speedX > 0 {
-            self.speedX = max(self.speedX - space, 0)
-            self.scrollX = clamp(value: self.scrollX + 5, min: minScroll, max: maxScroll)
-            self.lastScrollX = self.scrollX
+        if speedX < 0 {
+            speedX = min(speedX + space, 0)
+            scrollX = clamp(value: scrollX - 5, min: minScroll, max: maxScroll)
+            lastScrollX = scrollX
+        } else if speedX > 0 {
+            speedX = max(speedX - space, 0)
+            scrollX = clamp(value: scrollX + 5, min: minScroll, max: maxScroll)
+            lastScrollX = scrollX
         } else {
             displayLink?.invalidate()
             displayLink = nil
         }
     }
-    
-    
-    required init?(coder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-   
 }

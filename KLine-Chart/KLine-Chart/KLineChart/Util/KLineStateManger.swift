@@ -9,7 +9,6 @@
 import UIKit
 
 class KLineStateManger {
-    
     weak var klineChart: KLineChartView? {
         didSet {
             klineChart?.mainState = mainState
@@ -18,52 +17,48 @@ class KLineStateManger {
             klineChart?.datas = datas
         }
     }
-    
-    private init() {
-        
-    }
-    
+
+    private init() {}
+
     static let manager = KLineStateManger()
-    
+
     var period: String = "5min"
     var mainState: MainState = .ma
-    var secondaryState : SecondaryState = .macd
+    var secondaryState: SecondaryState = .macd
     var isLine = false
     var datas: [KLineModel] = [] {
         didSet {
             klineChart?.datas = datas
         }
     }
-    
+
     func setMainState(_ state: MainState) {
         mainState = state
         klineChart?.mainState = state
     }
-    
+
     func setSecondaryState(_ state: SecondaryState) {
         secondaryState = state
         klineChart?.secondaryState = state
     }
-    
+
     func setisLine(_ isLine: Bool) {
         self.isLine = isLine
         klineChart?.isLine = isLine
     }
-    
+
     func setDatas(_ datas: [KLineModel]) {
         self.datas = datas
         klineChart?.datas = datas
     }
-    
+
     func setPeriod(_ period: String) {
-        //需要取重新请求数据
+        // 需要取重新请求数据
         self.period = period
-        self.datas = []
-        HTTPTool.tool.getData(period: period) { (datas) in
+        datas = []
+        HTTPTool.tool.getData(period: period) { datas in
             DataUtil.calculate(dataList: datas)
             KLineStateManger.manager.datas = datas
         }
     }
-    
-    
 }

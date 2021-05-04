@@ -9,24 +9,22 @@
 import UIKit
 
 class KLineInfoView: UIView {
-    
-    @IBOutlet weak var timeLable: UILabel!
-    
-    @IBOutlet weak var openLable: UILabel!
-    
-    @IBOutlet weak var highLable: UILabel!
+    @IBOutlet var timeLable: UILabel!
 
-    @IBOutlet weak var lowLabel: UILabel!
-    
-    @IBOutlet weak var clsoeLabel: UILabel!
-    
-    @IBOutlet weak var IncreaseLabel: UILabel!
-    
-    @IBOutlet weak var amplitudeLabel: UILabel!
-    
-    @IBOutlet weak var amountLable: UILabel!
-    
-    
+    @IBOutlet var openLable: UILabel!
+
+    @IBOutlet var highLable: UILabel!
+
+    @IBOutlet var lowLabel: UILabel!
+
+    @IBOutlet var clsoeLabel: UILabel!
+
+    @IBOutlet var IncreaseLabel: UILabel!
+
+    @IBOutlet var amplitudeLabel: UILabel!
+
+    @IBOutlet var amountLable: UILabel!
+
     var model: KLineModel? {
         didSet {
             guard let _model = model else {
@@ -47,7 +45,7 @@ class KLineInfoView: UIView {
                 self.IncreaseLabel.textColor = ChartColors.dnColor
                 self.amplitudeLabel.textColor = ChartColors.dnColor
             }
-            let upDownPercent = upDown / _model.open * 100;
+            let upDownPercent = upDown / _model.open * 100
             IncreaseLabel.text = symbol + String(format: "%.2f", abs(upDown))
             amplitudeLabel.text = symbol + String(format: "%.2f", abs(upDownPercent)) + "%"
             amountLable.text = String(format: "%.2f", _model.vol)
@@ -56,16 +54,16 @@ class KLineInfoView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = ChartColors.bgColor
-        self.layer.borderWidth = 1
-        self.layer.borderColor = ChartColors.gridColor.cgColor
+        backgroundColor = ChartColors.bgColor
+        layer.borderWidth = 1
+        layer.borderColor = ChartColors.gridColor.cgColor
     }
-    
+
     static func lineInfoView() -> KLineInfoView {
-        let view = Bundle.main.loadNibNamed("KLineInfoView", owner: self, options: nil)?.last as! KLineInfoView
+        guard let view = Bundle.main.loadNibNamed("KLineInfoView", owner: self, options: nil)?.last as? KLineInfoView else {
+            fatalError()
+        }
         view.frame = CGRect(x: 0, y: 0, width: 120, height: 145)
-       return view
+        return view
     }
-    
-    
 }

@@ -1,0 +1,43 @@
+included:
+  - KLine-Chart
+excluded:
+ 
+disabled_rules:
+  - trailing_comma
+  - comma
+  - line_length
+  - file_length
+  - function_body_length
+  - type_body_length
+  - large_tuple
+  - cyclomatic_complexity
+  - block_based_kvo
+  - identifier_name
+  - function_parameter_count
+  - for_where
+  - todo
+  - unused_enumerated
+  - multiple_closures_with_trailing_closure
+  - class_delegate_protocol
+  - type_name
+
+identifier_name:
+  min_length: 1
+
+custom_rules:
+  self_nil:
+    include: "*.swift"
+    name: "Self enforce or optional problem"
+    regex: 'self(\?|\!)\.'
+    message: "Must use \"strongSelf = self\" to write code"
+    match_kinds: keyword
+    severity: error
+
+  exclamation_question_mark:
+    include: "*.swift"
+    name: "Enforce or optional problem"
+    //regex: '((\?|\!)\.)|(\)\!)'
+    regex: '((\!)\.)|(\)\!)'
+    message: "Must use \"if let xxx = ...\" to write code"
+    match_kinds: keyword
+    severity: error
