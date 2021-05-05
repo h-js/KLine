@@ -53,7 +53,7 @@ class KLineStateManger {
     }
 
     func setPeriod(_ period: String) {
-        // 需要取重新请求数据
+        // 需要重新请求数据
         self.period = period
         datas = []
         HTTPTool.tool.getData(period: period) { datas in

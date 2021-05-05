@@ -112,7 +112,7 @@ class KLineIndicatorsView: UIView {
             kLineEntity.id = model.id + 60 * 60 * 24
             kLineEntity.open = model.close
             let rand = Int(arc4random() % 200)
-            kLineEntity.close = kLineEntity.open // model.close + CGFloat(rand) * CGFloat((rand % 3) - 1)
+            kLineEntity.close = model.close + CGFloat(rand) * CGFloat((rand % 3) - 1)
             kLineEntity.high = max(kLineEntity.open, kLineEntity.close) + 10
             kLineEntity.low = min(kLineEntity.open, kLineEntity.close) - 10
 

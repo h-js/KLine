@@ -8,7 +8,7 @@
 
 import UIKit
 class DataUtil {
-    static func calculate(dataList: [KLineModel]) {
+    static func  calculate(dataList: [KLineModel]) {
         let _dataList = dataList.reversed() as [KLineModel]
         calcMA(_dataList)
         calcBOLL(_dataList)
