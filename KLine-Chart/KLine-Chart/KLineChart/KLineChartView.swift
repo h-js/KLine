@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KLineChartView: UIView {
+public class KLineChartView: UIView {
     var painterView: KLinePainterView?
     var isLine = false {
         didSet {
@@ -88,7 +88,7 @@ class KLineChartView: UIView {
         return view
     }()
 
-    override var frame: CGRect {
+    public override var frame: CGRect {
         didSet {
             self.painterView?.frame = self.bounds
             initIndicators()
@@ -124,7 +124,6 @@ class KLineChartView: UIView {
     func initIndicators() {
         let dataLength: CGFloat = CGFloat(datas.count) * (ChartStyle.candleWidth * scaleX + ChartStyle.canldeMargin) - ChartStyle.canldeMargin
         if dataLength > frame.width {
-            // 感觉没必要用if else 一样的效果
             maxScroll = dataLength - frame.width
         } else {
             maxScroll = -(frame.width - dataLength)

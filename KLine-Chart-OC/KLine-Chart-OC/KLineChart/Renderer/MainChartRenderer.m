@@ -25,9 +25,14 @@
         self.isLine = isLine;
         self.state = state;
         CGFloat diff = maxValue - minValue;
-        CGFloat newscaly = (chartRect.size.height - _contentPadding)/ diff;
-        CGFloat newDiff = chartRect.size.height / newscaly;
-        CGFloat value = (newDiff - diff) / 2;
+        CGFloat newscaly = 1;
+        CGFloat newDiff = 0;
+        CGFloat value = 0;
+        if(diff != 0) {
+            newscaly = (chartRect.size.height - _contentPadding)/ diff;
+            newDiff = chartRect.size.height / newscaly;
+            value = (newDiff - diff) / 2;
+        }
         if(newDiff > diff) {
             self.scaleY = newscaly;
             self.maxValue += value;

@@ -14,12 +14,17 @@ class MainChartRenderer: BaseChartRenderer {
     var isLine: Bool = false
     var state: MainState = .none
 
-    init(maxValue: CGFloat, minValue: CGFloat, chartRect: CGRect, candleWidth: CGFloat, topPadding: CGFloat, isLine: Bool, state: MainState) {
+    init(maxValue: CGFloat,
+         minValue: CGFloat,
+         chartRect: CGRect,
+         candleWidth: CGFloat,
+         topPadding: CGFloat,
+         isLine: Bool,
+         state: MainState) {
         super.init(maxValue: maxValue, minValue: minValue, chartRect: chartRect, candleWidth: candleWidth, topPadding: topPadding)
         self.isLine = isLine
         self.state = state
         let diff = maxValue - minValue
-        print(chartRect.height)
         let newScalY = (chartRect.height - contentPadding) / diff
         let newDiff = chartRect.height / newScalY
         let value = (newDiff - diff) / 2

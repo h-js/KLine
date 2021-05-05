@@ -7,23 +7,23 @@
 //
 
 import Foundation
-enum KLineDirection: Int {
+public enum KLineDirection: Int {
     case vertical // 竖屏布局
     case horizontal // 横屏布局
 }
 
-enum MainState: Int {
+public enum MainState: Int {
     case ma
     case boll
     case none
 }
 
-enum VolState: Int {
+public enum VolState: Int {
     case vol
     case none
 }
 
-enum SecondaryState: Int {
+public enum SecondaryState: Int {
     case macd
     case kdj
     case rsi

@@ -15,7 +15,7 @@ class HTTPTool: NSObject {
 
     func getData(period: String, complationBlock: @escaping (([KLineModel]) -> Void)) {
         currentDataTask?.cancel()
-        let url = URL(string: "https://api.huobi.pro/market/history/kline?period=\(period)&size=300&symbol=btcusdt")
+        let url = URL(string: "https://api.huobi.pro/market/history/kline?period=\(period)&size=300&symbol=dogeusdt")
 
         let requst = URLRequest(url: url!)
 

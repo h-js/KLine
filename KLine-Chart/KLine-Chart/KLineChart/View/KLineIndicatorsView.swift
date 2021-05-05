@@ -11,7 +11,6 @@ import UIKit
 class KLineIndicatorsView: UIView {
     @IBOutlet var maButton: UIButton! // tag == 1
     @IBOutlet var bollButton: UIButton! // tag == 2
-
     @IBOutlet var macdButton: UIButton! // tag == 1
     @IBOutlet var kdjButton: UIButton! // tag == 2
     @IBOutlet var rsiButton: UIButton! // tag == 3
@@ -24,7 +23,6 @@ class KLineIndicatorsView: UIView {
         view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 80)
         view.backgroundColor = ChartColors.bgColor
         view.layer.shadowColor = UIColor.black.cgColor
-//        view.layer.shadowOffset = CGSize(width: 0, height: 10)
         view.layer.shadowOpacity = 0.5
         view.layer.shadowRadius = 5
         return view
@@ -114,7 +112,7 @@ class KLineIndicatorsView: UIView {
             kLineEntity.id = model.id + 60 * 60 * 24
             kLineEntity.open = model.close
             let rand = Int(arc4random() % 200)
-            kLineEntity.close = model.close + CGFloat(rand) * CGFloat((rand % 3) - 1)
+            kLineEntity.close = kLineEntity.open // model.close + CGFloat(rand) * CGFloat((rand % 3) - 1)
             kLineEntity.high = max(kLineEntity.open, kLineEntity.close) + 10
             kLineEntity.low = min(kLineEntity.open, kLineEntity.close) - 10
 

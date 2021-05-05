@@ -168,9 +168,7 @@ class KLinePainterView: UIView {
             startX = offsetX
         }
         let diffIndex = Int(ceil((frame.width - startX) / itemWidth))
-        print(diffIndex)
         stopIndex = min(startIndex + diffIndex, datas.count - 1)
-        print("startIndex=\(startIndex)   endIndex=\(stopIndex)")
         mMainMaxValue = 0
         mMainMinValue = CGFloat(MAXFLOAT)
         mMainHighMaxValue = -CGFloat(MAXFLOAT)
@@ -185,7 +183,6 @@ class KLinePainterView: UIView {
             getVolMaxMinValue(item: item)
             getSecondaryMaxMinValue(item: item)
         }
-        print("mainMaxValue=\(mMainMaxValue)  mainMinValue=\(mMainMinValue)")
     }
 
     func drawChart(context: CGContext) {
@@ -243,7 +240,7 @@ class KLinePainterView: UIView {
 
             let dateStr = calculateDateText(timestamp: data.id, dateFormat: fromat) as NSString
             let rect = calculateTextRect(text: dateStr as String, fontSize: ChartStyle.bottomDatefontSize)
-            let y = dateRect.minY + (ChartStyle.bottomDateHigh - rect.height) / 2 // - rect.height
+            let y = dateRect.minY + (ChartStyle.bottomDateHigh - rect.height) / 2
             dateStr.draw(at: CGPoint(x: CGFloat(columSpace * CGFloat(i)) - rect.width / 2, y: y), withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: ChartStyle.bottomDatefontSize), NSAttributedString.Key.foregroundColor: ChartColors.bottomDateTextColor])
         }
     }
@@ -380,8 +377,6 @@ class KLinePainterView: UIView {
                 context.setFillColor(UIColor(white: 255, alpha: 0.3).cgColor)
                 context.addArc(center: CGPoint(x: frame.width + scrollX - candleWidth / 2, y: y), radius: 6, startAngle: 0, endAngle: CGFloat(Double.pi * 2.0), clockwise: true)
                 context.drawPath(using: CGPathDrawingMode.fill)
-//                self.fuzzylayer.frame = CGRect(x: self.frame.width + scrollX - candleWidth / 2 - 10, y: y - 10, width: 20, height: 20)
-//                self.layer.addSublayer(self.fuzzylayer)
             }
         } else {
             context.setStrokeColor(ChartColors.realTimeLongLineColor.cgColor)
