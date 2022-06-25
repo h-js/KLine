@@ -15,7 +15,7 @@ class HTTPTool: NSObject {
 
     func getData(period: String, complationBlock: @escaping (([KLineModel]) -> Void)) {
         currentDataTask?.cancel()
-        let url = URL(string: "https://api.huobi.pro/market/history/kline?period=\(period)&size=300&symbol=dogeusdt")
+        let url = URL(string: "https://api.huobi.pro/market/history/kline?period=\(period)&size=2000&symbol=btcusdt")
 
         let requst = URLRequest(url: url!)
 
@@ -31,8 +31,18 @@ class HTTPTool: NSObject {
                     let datas = dicts.map { (dict) -> KLineModel in
                         KLineModel(dict: dict)
                     }
+                    var addDatas: [KLineModel] = []
+                    var newDatas: [KLineModel] = []
+                    for idx in 0 ..< datas.count {
+                        if idx < 100 {
+                            addDatas.append(datas[idx])
+                        } else {
+                            newDatas.append(datas[idx])
+                        }
+                    }
+                    KLineStateManger.manager.addDatas = addDatas
                     DispatchQueue.main.async {
-                        complationBlock(datas)
+                        complationBlock(newDatas)
                     }
                     return
                 }

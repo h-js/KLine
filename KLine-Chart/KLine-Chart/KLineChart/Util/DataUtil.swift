@@ -8,7 +8,7 @@
 
 import UIKit
 class DataUtil {
-    static func  calculate(dataList: [KLineModel]) {
+    static func calculate(dataList: [KLineModel]) {
         let _dataList = dataList.reversed() as [KLineModel]
         calcMA(_dataList)
         calcBOLL(_dataList)
@@ -32,13 +32,32 @@ class DataUtil {
         calcWR(_dataList, isLast: true)
     }
 
+    // 更新最新的数据
+    static func updateLastData(dataList: [KLineModel], data: KLineModel) -> [KLineModel] {
+        var _dataList = dataList
+        if _dataList.count > 0 {
+            _dataList.removeFirst()
+            _dataList.insert(data, at: 0)
+            _dataList = _dataList.reversed()
+            calcMA(_dataList, isLast: true)
+            calcBOLL(_dataList, isLast: true)
+            calcVolumeMA(_dataList, isLast: true)
+            calcKDJ(_dataList, isLast: true)
+            calcMACD(_dataList, isLast: true)
+            calcRSI(_dataList, isLast: true)
+            calcWR(_dataList, isLast: true)
+            return _dataList.reversed()
+        }
+        return []
+    }
+
     static func calcMA(_ dataList: [KLineModel], isLast: Bool = false) {
         var ma5: CGFloat = 0
         var ma10: CGFloat = 0
         var ma20: CGFloat = 0
         var ma30: CGFloat = 0
         var start_index: Int = 0
-        if isLast, dataList.count > 1 {
+        if isLast, dataList.count > 30 {
             start_index = dataList.count - 1
             let data = dataList[dataList.count - 2]
             ma5 = data.MA5Price * 5
@@ -91,7 +110,7 @@ class DataUtil {
 
     static func calcBOLL(_ dataList: [KLineModel], isLast: Bool = false) {
         var startIndex: Int = 0
-        if isLast, dataList.count > 1 {
+        if isLast, dataList.count > 19 {
             startIndex = dataList.count - 1
         }
         for i in startIndex ..< dataList.count {
@@ -126,7 +145,7 @@ class DataUtil {
         var macd: CGFloat = 0
 
         var i = 0
-        if isLast, dataList.count > 1 {
+        if isLast, dataList.count > 26 {
             i = dataList.count - 1
             let data = dataList[dataList.count - 2]
             dif = data.dif
@@ -165,7 +184,7 @@ class DataUtil {
         var volumeMa5: CGFloat = 0
         var volumeMa10: CGFloat = 0
         var starti: Int = 0
-        if isLast, dataList.count > 1 {
+        if isLast, dataList.count > 9 {
             starti = dataList.count - 1
             let data = dataList[dataList.count - 2]
             volumeMa5 = data.MA5Volume * 5
@@ -199,7 +218,7 @@ class DataUtil {
         var rsiABSEma: CGFloat = 0
         var rsiMaxEma: CGFloat = 0
         var startIndex = 0
-        if isLast, dataList.count > 1 {
+        if isLast, dataList.count > 13 {
             startIndex = dataList.count - 1
             let data = dataList[dataList.count - 2]
             rsi = data.rsi
@@ -232,7 +251,7 @@ class DataUtil {
         var k: CGFloat = 0
         var d: CGFloat = 0
         var _startIndex: Int = 0
-        if isLast && dataList.count > 1 {
+        if isLast && dataList.count > 13 {
             _startIndex = dataList.count - 1
             let data = dataList[dataList.count - 2]
             k = data.k
@@ -284,7 +303,7 @@ class DataUtil {
 
     static func calcWR(_ dataList: [KLineModel], isLast: Bool = false) {
         var i_index = 0
-        if isLast, dataList.count > 1 {
+        if isLast, dataList.count > 14 {
             i_index = dataList.count - 1
         }
         for i in i_index ..< dataList.count {

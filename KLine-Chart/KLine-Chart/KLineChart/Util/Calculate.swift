@@ -8,6 +8,8 @@
 
 import UIKit
 
+let formater = DateFormatter()
+
 func clamp<T: Comparable>(value: T, min: T, max: T) -> T {
     if value < min {
         return min
@@ -25,7 +27,6 @@ func calculateTextRect(text: String, fontSize: CGFloat) -> CGRect {
 
 func calculateDateText(timestamp: Int64, dateFormat: String) -> String {
     let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
-    let formater = DateFormatter()
     formater.dateFormat = dateFormat
     return formater.string(from: date)
 }

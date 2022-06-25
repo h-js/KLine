@@ -69,7 +69,7 @@ class ChartStyle {
     static let pointWidth: CGFloat = 11.0
 
     // 蜡烛之间的间距
-    static let canldeMargin: CGFloat = 3
+    static let canldeMargin: CGFloat = 1
 
     // 蜡烛默认宽度
     static let defaultcandleWidth: CGFloat = 8.5

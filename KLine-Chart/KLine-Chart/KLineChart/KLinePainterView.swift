@@ -424,14 +424,20 @@ class KLinePainterView: UIView {
         mainRenderer = MainChartRenderer(maxValue: mMainMaxValue, minValue: mMainMinValue, chartRect: mainRect, candleWidth: candleWidth, topPadding: ChartStyle.topPadding, isLine: isLine, state: mainState)
         if let rect = volRect {
             volRenderer = VolChartRenderer(maxValue: mVolMaxValue, minValue: mVolMinValue, chartRect: rect, candleWidth: candleWidth, topPadding: ChartStyle.childPadding)
+        } else {
+            volRenderer = nil
         }
         if let rect = secondaryRect {
             seconderyRender = SecondaryChartRenderer(maxValue: mSecondaryMaxValue, minValue: mSecondaryMinValue, chartRect: rect, candleWidth: candleWidth, topPadding: ChartStyle.childPadding, state: secondaryState)
+        } else {
+            seconderyRender = nil
         }
     }
 
     // 区分三大区域
     func divisionRect() {
+        volRect = nil
+        secondaryRect = nil
         var mainHeight = displayHeight * 0.6
         let volHeight = displayHeight * 0.2
         let secondaryHeight = displayHeight * 0.2

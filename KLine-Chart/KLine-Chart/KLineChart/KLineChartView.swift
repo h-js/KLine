@@ -9,10 +9,10 @@
 import UIKit
 
 public class KLineChartView: UIView {
-    var painterView: KLinePainterView?
+    var painterView: KLinePainterView!
     var isLine = false {
         didSet {
-            painterView?.isLine = isLine
+            painterView.isLine = isLine
         }
     }
 
@@ -20,7 +20,7 @@ public class KLineChartView: UIView {
     var isDrag = false
     var isLongPress = false {
         didSet {
-            painterView?.isLongPress = isLongPress
+            painterView.isLongPress = isLongPress
             if !isLongPress {
                 infoView.removeFromSuperview()
             }
@@ -29,7 +29,7 @@ public class KLineChartView: UIView {
 
     var scrollX: CGFloat = 0.0 {
         didSet {
-            painterView?.scrollX = scrollX
+            painterView.scrollX = scrollX
         }
     }
 
@@ -37,7 +37,6 @@ public class KLineChartView: UIView {
     var minScroll: CGFloat = 0.0
     var scaleX: CGFloat = 1.0 {
         didSet {
-            initIndicators()
             painterView?.scaleX = scaleX
         }
     }
@@ -46,36 +45,46 @@ public class KLineChartView: UIView {
     var datas: [KLineModel] = [] {
         didSet {
             initIndicators()
-            painterView?.datas = datas
+            painterView.datas = datas
         }
     }
 
     var mainState: MainState = .none {
         didSet {
-            painterView?.mainState = mainState
+            painterView.mainState = mainState
         }
     }
 
     var secondaryState: SecondaryState = .none {
         didSet {
-            painterView?.secondaryState = secondaryState
+            painterView.secondaryState = secondaryState
         }
     }
 
+    // 拖动相关参数
     var lastScrollX: CGFloat = 0.0
     var dragbeginX: CGFloat = 0
 
+    /// 上一次缩放的比例
     var lastscaleX: CGFloat = 1
+    /// 缩放的中心点
+    var scaleStartX: CGFloat = 0
+    /// 缩放中心点对应的index
+    var scaleIndex: Int = 0
+
+    // k线初始位置
+    var minTrailing: CGFloat = 0
+    var maxTrailing: CGFloat = 0
 
     var longPressX: CGFloat = 0 {
         didSet {
-            painterView?.longPressX = longPressX
+            painterView.longPressX = longPressX
         }
     }
 
     var direction: KLineDirection = .vertical {
         didSet {
-            painterView?.direction = direction
+            painterView.direction = direction
         }
     }
 
@@ -97,11 +106,21 @@ public class KLineChartView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        painterView = KLinePainterView(
+            frame: bounds,
+            datas: datas,
+            scrollX: scrollX,
+            isLine: isLine,
+            scaleX: scaleX,
+            isLongPress: isLongPress,
+            mainState: mainState,
+            secondaryState: secondaryState
+        )
+        initTrailing()
         scrollX = -self.frame.width / 5 + ChartStyle.candleWidth / 2
         initIndicators()
-        painterView = KLinePainterView(frame: bounds, datas: datas, scrollX: scrollX, isLine: isLine, scaleX: scaleX, isLongPress: isLongPress, mainState: mainState, secondaryState: secondaryState)
-        addSubview(painterView!)
-        painterView?.showInfoBlock = {
+        addSubview(painterView)
+        painterView.showInfoBlock = {
             [weak self] point, isleft in
             guard let strongSelf = self else { return }
             strongSelf.infoView.model = point
@@ -113,15 +132,33 @@ public class KLineChartView: UIView {
                 strongSelf.infoView.frame = CGRect(x: strongSelf.frame.width - strongSelf.infoView.frame.width - padding, y: 30, width: strongSelf.infoView.frame.width, height: strongSelf.infoView.frame.height)
             }
         }
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragKlineEvent(gesture:)))
-        painterView?.addGestureRecognizer(panGesture)
-        let longPressGreture = UILongPressGestureRecognizer(target: self, action: #selector(longPressKlineEvent(gesture:)))
-        painterView?.addGestureRecognizer(longPressGreture)
-        let pinGesture = UIPinchGestureRecognizer(target: self, action: #selector(secalXEvent(gesture:)))
-        painterView?.addGestureRecognizer(pinGesture)
+        let panGesture = UIPanGestureRecognizer(
+            target: self,
+            action: #selector(dragKlineEvent(gesture:))
+        )
+        painterView.addGestureRecognizer(panGesture)
+        let longPressGreture = UILongPressGestureRecognizer(
+            target: self,
+            action: #selector(longPressKlineEvent(gesture:))
+        )
+        painterView.addGestureRecognizer(longPressGreture)
+        let pinGesture = UIPinchGestureRecognizer(
+            target: self,
+            action: #selector(secalXEvent(gesture:))
+        )
+        painterView.addGestureRecognizer(pinGesture)
     }
 
-    func initIndicators() {
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func initTrailing() {
+        minTrailing = frame.width * 0.2
+        maxTrailing = frame.width * 0.2
+    }
+
+    func initScrollWidth() {
         let dataLength: CGFloat = CGFloat(datas.count) * (ChartStyle.candleWidth * scaleX + ChartStyle.canldeMargin) - ChartStyle.canldeMargin
         if dataLength > frame.width {
             maxScroll = dataLength - frame.width
@@ -129,11 +166,26 @@ public class KLineChartView: UIView {
             maxScroll = -(frame.width - dataLength)
         }
         let dataScroll = frame.width - dataLength
-        let normalminScroll = -frame.width / 5 + (ChartStyle.candleWidth * scaleX) / 2
+        let normalminScroll = -maxTrailing + (ChartStyle.candleWidth * scaleX) / 2
         minScroll = min(normalminScroll, -dataScroll)
+    }
+
+    func secalXIndicators(trailing: CGFloat) {
+        initScrollWidth()
+        let selectIndexOffset = CGFloat(scaleIndex) * (ChartStyle.candleWidth * scaleX + ChartStyle.canldeMargin) - ChartStyle.canldeMargin
+        scrollX = clamp(
+            value: selectIndexOffset - trailing,
+            min: minScroll,
+            max: maxScroll
+        )
+        print(scrollX)
+    }
+
+    func initIndicators() {
+        if datas.count == 0 { return }
+        initScrollWidth()
         scrollX = clamp(value: scrollX, min: minScroll, max: maxScroll)
         lastScrollX = scrollX
-        print(scrollX)
     }
 
     // 拖动k线处理事件
@@ -147,7 +199,11 @@ public class KLineChartView: UIView {
         case .changed:
             let point = gesture.location(in: painterView)
             let dragX = point.x - dragbeginX
-            scrollX = clamp(value: lastScrollX + dragX, min: minScroll, max: maxScroll)
+            scrollX = clamp(
+                value: lastScrollX + dragX,
+                min: minScroll,
+                max: maxScroll
+            )
             print(scrollX)
         case .ended:
             let speed = gesture.velocity(in: gesture.view)
@@ -156,8 +212,14 @@ public class KLineChartView: UIView {
             isDrag = false
             lastScrollX = scrollX
             if speed.x != 0 {
-                displayLink = CADisplayLink(target: self, selector: #selector(refreshEvent))
-                displayLink?.add(to: RunLoop.current, forMode: RunLoop.Mode.common)
+                displayLink = CADisplayLink(
+                    target: self,
+                    selector: #selector(refreshEvent)
+                )
+                displayLink?.add(
+                    to: RunLoop.current,
+                    forMode: RunLoop.Mode.common
+                )
             }
         default:
             print("拖动k线出现\(gesture.state)事件")
@@ -184,17 +246,25 @@ public class KLineChartView: UIView {
     }
 
     @objc func secalXEvent(gesture: UIPinchGestureRecognizer) {
-        print("longPressKlineEvent")
         switch gesture.state {
         case .began:
             isScale = true
+            let point = gesture.location(in: self)
+            scaleStartX = point.x
+            guard let index = calculateIndex(selectX: scaleStartX) else { return }
+            scaleIndex = index
         case .changed:
             isScale = true
-            print(gesture.scale)
-            scaleX = clamp(value: lastscaleX * gesture.scale, min: 0.5, max: 2)
-        case .ended:
+            let newscaleX = clamp(value: lastscaleX * gesture.scale, min: 0.1, max: 5)
+            if newscaleX == scaleX { return }
+            scaleX = newscaleX
+            let rightWidth = frame.width - scaleStartX
+            secalXIndicators(trailing: rightWidth)
+
+        case .ended, .cancelled:
             isScale = false
             lastscaleX = scaleX
+            lastScrollX = scrollX
         default:
             print("长按k线出现\(gesture.state)事件")
         }
@@ -204,11 +274,19 @@ public class KLineChartView: UIView {
         let space: CGFloat = 100
         if speedX < 0 {
             speedX = min(speedX + space, 0)
-            scrollX = clamp(value: scrollX - 5, min: minScroll, max: maxScroll)
+            scrollX = clamp(
+                value: scrollX - 5,
+                min: minScroll,
+                max: maxScroll
+            )
             lastScrollX = scrollX
         } else if speedX > 0 {
             speedX = max(speedX - space, 0)
-            scrollX = clamp(value: scrollX + 5, min: minScroll, max: maxScroll)
+            scrollX = clamp(
+                value: scrollX + 5,
+                min: minScroll,
+                max: maxScroll
+            )
             lastScrollX = scrollX
         } else {
             displayLink?.invalidate()
@@ -216,7 +294,7 @@ public class KLineChartView: UIView {
         }
     }
 
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private func calculateIndex(selectX _: CGFloat) -> Int? {
+        return painterView?.calculateIndex(selectX: scaleStartX)
     }
 }

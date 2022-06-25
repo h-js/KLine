@@ -22,6 +22,8 @@ class KLineStateManger {
 
     static let manager = KLineStateManger()
 
+    var addDatas: [KLineModel] = []
+
     var period: String = "5min"
     var mainState: MainState = .ma
     var secondaryState: SecondaryState = .macd
