@@ -37,6 +37,10 @@
 		6EF6F288240B9EE80045F912 /* depth.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF6F285240B9EE80045F912 /* depth.json */; };
 		6EF6F289240B9EE80045F912 /* kmon.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EF6F286240B9EE80045F912 /* kmon.json */; };
 		6EF6F28B240BB4D20045F912 /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6F28A240BB4D20045F912 /* DataUtil.swift */; };
+		885EFBDE28688C1200FC6503 /* BrokenRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885EFBDD28688C1200FC6503 /* BrokenRender.swift */; };
+		886F86112867FCD4005F4550 /* KDrawPainterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F86102867FCD4005F4550 /* KDrawPainterView.swift */; };
+		886F861628680241005F4550 /* KDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F861528680241005F4550 /* KDrawView.swift */; };
+		887AF83E2867EEFE001CCA37 /* KDotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887AF83D2867EEFE001CCA37 /* KDotNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		6EF6F285240B9EE80045F912 /* depth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = depth.json; sourceTree = "<group>"; };
 		6EF6F286240B9EE80045F912 /* kmon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kmon.json; sourceTree = "<group>"; };
 		6EF6F28A240BB4D20045F912 /* DataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
+		885EFBDD28688C1200FC6503 /* BrokenRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokenRender.swift; sourceTree = "<group>"; };
+		886F86102867FCD4005F4550 /* KDrawPainterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDrawPainterView.swift; sourceTree = "<group>"; };
+		886F861528680241005F4550 /* KDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDrawView.swift; sourceTree = "<group>"; };
+		887AF83D2867EEFE001CCA37 /* KDotNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDotNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,7 @@
 		6EBA1287240B56FA00EB1B4E /* KLineChart */ = {
 			isa = PBXGroup;
 			children = (
+				887AF83B2867EEA5001CCA37 /* drawLine */,
 				6EB1BB3A240E6FE000B61F08 /* View */,
 				6EF6F276240B61AA0045F912 /* Util */,
 				6EF6F271240B5E5E0045F912 /* Renderer */,
@@ -201,6 +210,41 @@
 				6EF6F286240B9EE80045F912 /* kmon.json */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		885EFBDC28688BE900FC6503 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				885EFBDD28688C1200FC6503 /* BrokenRender.swift */,
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
+		886F860F2867FCB6005F4550 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				886F86102867FCD4005F4550 /* KDrawPainterView.swift */,
+				886F861528680241005F4550 /* KDrawView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		887AF83B2867EEA5001CCA37 /* drawLine */ = {
+			isa = PBXGroup;
+			children = (
+				885EFBDC28688BE900FC6503 /* Renderer */,
+				886F860F2867FCB6005F4550 /* View */,
+				887AF83C2867EEB2001CCA37 /* Model */,
+			);
+			path = drawLine;
+			sourceTree = "<group>";
+		};
+		887AF83C2867EEB2001CCA37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				887AF83D2867EEFE001CCA37 /* KDotNode.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,10 +331,13 @@
 				6E2B401E240FEF6400A9BF59 /* HTTPTool.swift in Sources */,
 				6EF6F27A240B7EBC0045F912 /* VolChartRenderer.swift in Sources */,
 				6EBA1276240B53C500EB1B4E /* ViewController.swift in Sources */,
+				886F861628680241005F4550 /* KDrawView.swift in Sources */,
+				885EFBDE28688C1200FC6503 /* BrokenRender.swift in Sources */,
 				6EF6F28B240BB4D20045F912 /* DataUtil.swift in Sources */,
 				6EB1BB44240E7F7C00B61F08 /* KLineStateManger.swift in Sources */,
 				6EBA1272240B53C500EB1B4E /* AppDelegate.swift in Sources */,
 				6EF6F280240B87640045F912 /* KLineChartView.swift in Sources */,
+				886F86112867FCD4005F4550 /* KDrawPainterView.swift in Sources */,
 				6EF6F278240B61D00045F912 /* UIColor+RGB.swift in Sources */,
 				6E2B4017240FD60700A9BF59 /* KLineInfoView.swift in Sources */,
 				6EF6F282240B90D80045F912 /* Calculate.swift in Sources */,
@@ -299,6 +346,7 @@
 				6EBA1286240B53F100EB1B4E /* KLinePainterView.swift in Sources */,
 				6E2B4019240FE38400A9BF59 /* KLineVerticalIndicatorsView.swift in Sources */,
 				6EBA128D240B5A5500EB1B4E /* KLineState.swift in Sources */,
+				887AF83E2867EEFE001CCA37 /* KDotNode.swift in Sources */,
 				6EF6F27E240B83BC0045F912 /* KLineModel.swift in Sources */,
 				6EB1BB40240E79D700B61F08 /* KLineIndicatorsView.swift in Sources */,
 			);

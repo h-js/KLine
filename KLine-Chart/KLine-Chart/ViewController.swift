@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     let lineIndicatorsView = KLineIndicatorsView.indicatorsView()
 
     let verticalIndicatorsView = KLineVerticalIndicatorsView.verticalIndicatorsView()
+    
+    var drawView = KDrawView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +31,11 @@ class ViewController: UIViewController {
         view.addSubview(klinePeriodView)
         view.addSubview(lineIndicatorsView)
         view.addSubview(verticalIndicatorsView)
+        view.addSubview(drawView)
+        
 
         verticalLayout()
+        drawView.frame = klineCharView.frame
 
         KLineStateManger.manager.klineChart = klineCharView
         NotificationCenter.default.addObserver(self, selector: #selector(chageRotate(noti:)), name: UIApplication.didChangeStatusBarFrameNotification, object: nil)
